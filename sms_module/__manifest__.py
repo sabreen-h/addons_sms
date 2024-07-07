@@ -2,10 +2,11 @@
 {
     'name': "sms_module",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Student Management System",
 
     'description': """
-Long description of module's purpose
+This system will manage student information, courses, enrollments, grades, attendance, and more. The goal is to create a modular, scalable, and user-friendly application that covers various aspects of school administration.
+
     """,
 
     'author': "My Company",

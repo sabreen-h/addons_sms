@@ -1,3 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+
+from . import student
+from . import course
+from . import enrollment
+from . import grade
+from . import attendance
