@@ -1,9 +1,14 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
 class Enrollment(models.Model):
 
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.enrollment"
     _description = "Enrollment"
+    _sql_constraints = [
+        ('student_course_unique', 'UNIQUE(student_id, course_id)', 'The student is already enrolled in this course.')
+    ]
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
@@ -31,6 +36,14 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
+
+    @api.constrains('student_id', 'course_id')
+    def _check_unique_enrollment(self):
+        for record in self:
+            if self.search_count(
+                    [('student_id', '=', record.student_id.id), ('course_id', '=', record.course_id.id)]) > 1:
+                raise ValidationError('The student is already enrolled in this course.')
+
 
     # endregion
 

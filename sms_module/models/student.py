@@ -3,7 +3,10 @@ class Student(models.Model):
 
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.student"
-    _description = " Student"
+    _description = "Student"
+    _sql_constraints = [
+        ('student_id_unique', 'UNIQUE(student_id)', 'Student ID must be unique!')
+    ]
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
@@ -36,9 +39,7 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
-    _sql_constraints = [
-        ('student_id_unique', 'UNIQUE(student_id)', 'Student ID must be unique!')
-    ]
+
     # endregion
 
     # region ---------------------- TODO[IMP]: CRUD Methods -------------------------------------

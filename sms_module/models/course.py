@@ -11,7 +11,7 @@ class Course(models.Model):
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
     name = fields.Char(string='Name')
-    description = fields.Text(string='Description')
+    description = fields.Html(string='Description')
     syllabus = fields.Text(string='Syllabus')
     duration = fields.Integer(string='Duration (weeks)')
     prerequisites = fields.Text(string='Prerequisites')
