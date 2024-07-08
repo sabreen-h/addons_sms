@@ -23,7 +23,8 @@ This system will manage student information, courses, enrollments, grades, atten
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/groups.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
