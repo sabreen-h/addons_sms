@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--TODO[IMP]: <grade> _view_form-->
+   <record id="grade_view_form" model="ir.ui.view">
+    <field name="name">sms_module.grade.form</field>
+    <field name="model">sms_module.grade</field>
+    <field name="arch" type="xml">
+        <form>
+            <header></header>
+            <sheet>
+                <group>
+                    <field name="grade"/>
+                    <field name="date"/>
+                    <field name="student_id"/>
+                    <field name="course_id"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+      <!--TODO[IMP]: <grade> _view_tree-->
+    <record id="grade_view_tree" model="ir.ui.view">
+    <field name="name">sms_module.grade.tree</field>
+    <field name="model">sms_module.grade</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="grade"/>
+            <field name="date"/>
+            <field name="student_id"/>
+            <field name="course_id"/>
+        </tree>
+    </field>
+</record>
+
+
+
+          <!--TODO[IMP]: <grade> _view_search-->
+
+   <record id="grade_view_search" model="ir.ui.view">
+    <field name="name">sms_module.grade.search</field>
+    <field name="model">sms_module.grade</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="grade"/>
+            <field name="date"/>
+            <field name="student_id"/>
+            <field name="course_id"/>
+            <group expand="1" string="Group By">
+                <filter name="grade" string="Grade" context="{'group_by':'grade'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+    <!--TODO[IMP]: <grade> _action-->
+
+    <record id="grade_action" model="ir.actions.act_window">
+            <field name="name">Grades</field>
+            <field name="res_model">sms_module.grade</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_available': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create or manage grade records</p>
+            </field>
+    </record>
+
+
+
+
+
+</odoo>

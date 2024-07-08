@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+        <!-- Top Menu with Icon -->
+        <menuitem id="top_menu" name="Student Management System" sequence="20" web_icon="sms_module,static/description/icon.png" />
+
+        <!-- Operation Submenu -->
+        <menuitem id="op_sub_menu" name="Operation" parent="top_menu" sequence="25"/>
+
+        <!-- Configuration Submenu -->
+        <menuitem id="config_menu" name="Configuration" parent="top_menu" sequence="30"/>
+
+        <!-- Student Model Submenu -->
+        <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="35" action="student_action" />
+
+        <!-- Course Model Submenu -->
+        <menuitem id="course_menu" name="Courses" parent="op_sub_menu" sequence="40" action="course_action" />
+
+        <!-- Enrollment Model Submenu -->
+        <menuitem id="enrollment_menu" name="Enrollments" parent="op_sub_menu" sequence="45" action="enrollment_action" />
+
+        <!-- Grade Model Submenu -->
+        <menuitem id="grade_menu" name="Grades" parent="op_sub_menu" sequence="50" action="grade_action" />
+
+        <!-- Attendance Model Submenu -->
+        <menuitem id="attendance_menu" name="Attendance" parent="op_sub_menu" sequence="55" action="attendance_action" />
+    </data>
+
+</odoo>

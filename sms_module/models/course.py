@@ -4,6 +4,8 @@ class Course(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.course"
     _description = "Course"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
@@ -11,7 +13,7 @@ class Course(models.Model):
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
     name = fields.Char(string='Name')
-    description = fields.Html(string='Description')
+    description = fields.Html(string='Description' , tracking=1)
     syllabus = fields.Text(string='Syllabus')
     duration = fields.Integer(string='Duration (weeks)')
     prerequisites = fields.Text(string='Prerequisites')
@@ -21,6 +23,8 @@ class Course(models.Model):
     # endregion
 
     # region  Relational
+    enrollment_ids = fields.One2many('sms_module.enrollment', 'course_id', string='Enrollments')
+
     # endregion
 
     # region  Computed
