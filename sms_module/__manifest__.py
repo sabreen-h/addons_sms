@@ -5,7 +5,7 @@
     'summary': "Student Management System",
 
     'description': """
-This system will manage student information, courses, enrollments, grades, attendance, and more. The goal is to create a modular, scalable, and user-friendly application that covers various aspects of school administration.
+     This system will manage student information, courses, enrollments, grades, attendance, and more. The goal is to create a modular, scalable, and user-friendly application that covers various aspects of school administration.
 
     """,
 
@@ -17,20 +17,24 @@ This system will manage student information, courses, enrollments, grades, atten
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base' , 'mail'],
+    'depends': ['base', 'mail'],
 
     # always loaded
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
-        'views/menus.xml',
+
         'views/student_views.xml',
         'views/course_views.xml',
         'views/enrollment_views.xml',
         'views/grade_views.xml',
-        'views/attendance_views.xml'
+        'views/attendance_views.xml',
+        'wizard/enrollment_wizard_views.xml',
+
+        'views/menus.xml'
 
     ],
     # only loaded in demonstration mode
@@ -38,4 +42,3 @@ This system will manage student information, courses, enrollments, grades, atten
         'demo/demo.xml',
     ],
 }
-

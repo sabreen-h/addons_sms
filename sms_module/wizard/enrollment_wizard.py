@@ -1,35 +1,26 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class Attendance(models.Model):
 
+class EnrollmentWizard(models.TransientModel):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
-    _name = "sms_module.attendance"
-    _description = "Attendance"
-    _sql_constraints = [
-        ('attendance_date_student_course_unique',
-         'UNIQUE(attendance_date, student_id, course_id)',
-         'Attendance for this student in this course on this date already exists.')
-    ]
+    _name = "sms_module.enrollment_wizard"
+    _description = "Enrollment Wizard"
+
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
-    attendance_date = fields.Date(string='Attendance Date')
-    status = fields.Selection([
-        ('present', 'Present'),
-        ('absent', 'Absent'),
-        ('late', 'Late'),
-    ], string='Status', default='present')
+
     # endregion
 
     # region  Special
     # endregion
 
     # region  Relational
-    student_id = fields.Many2one('sms_module.student', string='Student')
+    student_ids = fields.Many2many('sms_module.student', string='Students')
     course_id = fields.Many2one('sms_module.course', string='Course')
     # endregion
 
@@ -42,20 +33,27 @@ class Attendance(models.Model):
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
 
-    @api.constrains('attendance_date', 'student_id', 'course_id')
-    def _check_unique_attendance(self):
-        for record in self:
-            if self.search_count(
-                    [('attendance_date', '=', record.attendance_date),
-                     ('student_id', '=', record.student_id.id),
-                     ('course_id', '=', record.course_id.id)]) > 1:
-                raise ValidationError('Attendance for this student in this course on this date already exists.')
     # endregion
 
     # region ---------------------- TODO[IMP]: CRUD Methods -------------------------------------
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def enroll_students(self):
+        Enrollment = self.env['sms_module.enrollment']
+        for wizard in self:
+            for student in wizard.student_ids:
+                if not Enrollment.search([('student_id', '=', student.id), ('course_id', '=', wizard.course_id.id)]):
+                    Enrollment.create({
+                        'student_id': student.id,
+                        'course_id': wizard.course_id.id,
+                        'enrollment_date': fields.Date.today(),
+                    })
+                else:
+                    raise ValidationError(
+                        f'The student {student.name} is already enrolled in the course {wizard.course_id.name}.')
+        return {'type': 'ir.actions.act_window_close'}
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

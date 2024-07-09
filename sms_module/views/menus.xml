@@ -3,13 +3,13 @@
 
     <data>
         <!-- Top Menu with Icon -->
-        <menuitem id="top_menu" name="Student Management System" sequence="20" web_icon="sms_module,static/description/icon.png" />
+        <menuitem id="top_menu" name="SMS" sequence="20" web_icon="sms_module,static/description/icon.png" />
 
         <!-- Operation Submenu -->
         <menuitem id="op_sub_menu" name="Operation" parent="top_menu" sequence="25"/>
 
-        <!-- Configuration Submenu -->
-        <menuitem id="config_menu" name="Configuration" parent="top_menu" sequence="30"/>
+        <!-- Enrollment Wizard Submenu -->
+        <menuitem id="enrollment_wizard_menu" name="Enrollment Wizard" parent="top_menu" sequence="30" action="action_enrollment_wizard"/>
 
         <!-- Student Model Submenu -->
         <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="35" action="student_action" />

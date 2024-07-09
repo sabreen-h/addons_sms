@@ -7,8 +7,11 @@ class Enrollment(models.Model):
     _name = "sms_module.enrollment"
     _description = "Enrollment"
     _sql_constraints = [
-        ('student_course_unique', 'UNIQUE(student_id, course_id)', 'The student is already enrolled in this course.')
+        ('student_course_enrollment_date_unique',
+         'UNIQUE(student_id, course_id, enrollment_date)',
+         'The student is already enrolled in this course on this date.')
     ]
+
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
@@ -36,13 +39,14 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
-
-    @api.constrains('student_id', 'course_id')
+    @api.constrains('enrollment_date', 'student_id', 'course_id')
     def _check_unique_enrollment(self):
         for record in self:
             if self.search_count(
-                    [('student_id', '=', record.student_id.id), ('course_id', '=', record.course_id.id)]) > 1:
-                raise ValidationError('The student is already enrolled in this course.')
+                    [('enrollment_date', '=', record.enrollment_date),
+                     ('student_id', '=', record.student_id.id),
+                     ('course_id', '=', record.course_id.id)]) > 1:
+                raise ValidationError('Enrollment for this student in this course on this date already exists.')
 
 
     # endregion
