@@ -7,7 +7,12 @@
         <field name="model">sms_module.course</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
+
+                <header>
+                     <!-- Apply Web Ribbon Widget -->
+                    <widget name="web_ribbon" title="Featured" bg_color="text-bg-danger" invisible="not is_featured">
+                    </widget>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1><field name="name"/></h1>
@@ -21,6 +26,9 @@
                         <group>
                             <field name="duration"/>
                             <field name="prerequisites"/>
+                            <field name="is_featured"/>
+
+
                         </group>
                     </group>
                     <notebook>
@@ -33,6 +41,9 @@
                             </field>
                         </page>
                     </notebook>
+
+
+
                 </sheet>
 
                  <!-- Chatter Section -->

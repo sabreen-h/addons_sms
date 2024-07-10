@@ -18,12 +18,12 @@ class Student(models.Model):
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
     name = fields.Char(string='Name')
-    description = fields.Html(string='Description' , tracking=1)
+    description = fields.Html(string='Description', tracking=1)
     date_of_birth = fields.Date(string='Date of Birth')
-    contact_details = fields.Char(string='Contact Details' , tracking=1)
+    contact_details = fields.Char(string='Contact Details', tracking=1)
     address = fields.Text(string='Address')
     guardian_details = fields.Text(string='Guardian Details')
-    student_id = fields.Char(string='Student ID')
+    student_id = fields.Char(string="Student ID", required=True, default=lambda self: self.env['ir.sequence'].next_by_code('STD'))
     national_doc = fields.Binary(string='National Document', attachment=True)
     image = fields.Image(string='Image', attachment=True)
 
@@ -35,7 +35,7 @@ class Student(models.Model):
     # endregion
 
     # region  Relational
-    enrollment_ids = fields.One2many('sms_module.enrollment', 'student_id', string='Enrollments' ,tracking=1)
+    enrollment_ids = fields.One2many('sms_module.enrollment', 'student_id', string='Enrollments', tracking=1)
 
     # endregion
 
@@ -62,10 +62,9 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------
-    @api.model
-    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None, order=None):
         args = args or []
         domain = ['|', ('name', operator, name), ('student_id', operator, name)]
-        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
+        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid, order=order)
 
     # endregion

@@ -1,8 +1,8 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class Enrollment(models.Model):
 
+class Enrollment(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.enrollment"
     _description = "Enrollment"
@@ -18,16 +18,22 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
-    enrollment_date = fields.Date(string='Enrollment Date')
+    enrollment_date = fields.Date(string='Enrollment Date', default=lambda self: fields.Date.today())
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
+        ('completed', 'Completed'),
+        ('cancelled', 'Cancelled')
+    ], string='State', default='draft', tracking=True)
+
     # endregion
 
     # region  Special
     # endregion
 
     # region  Relational
-    student_id = fields.Many2one('sms_module.student', string='Student')
+    student_id = fields.Many2one('sms_module.student', string='Student', domain=[('active', '=', True)])
     course_id = fields.Many2one('sms_module.course', string='Course')
-
 
     # endregion
 
@@ -48,13 +54,27 @@ class Enrollment(models.Model):
                      ('course_id', '=', record.course_id.id)]) > 1:
                 raise ValidationError('Enrollment for this student in this course on this date already exists.')
 
-
     # endregion
 
     # region ---------------------- TODO[IMP]: CRUD Methods -------------------------------------
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def action_confirm(self):
+        for record in self:
+            record.state = 'confirmed'
+
+    def action_complete(self):
+        for record in self:
+            record.state = 'completed'
+
+    def action_cancel(self):
+        for record in self:
+            record.state = 'cancelled'
+
+    def action_draft(self):
+        for record in self:
+            record.state = 'draft'
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

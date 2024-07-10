@@ -58,7 +58,7 @@
         <field name="name">sms_module.student.tree</field>
         <field name="model">sms_module.student</field>
         <field name="arch" type="xml">
-            <tree string="Students">
+            <tree string="Students" default_order="name asc, student_id asc">
                 <field name="name"/>
                 <field name="student_id"/>
             </tree>

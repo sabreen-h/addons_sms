@@ -19,12 +19,18 @@ class Attendance(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
-    attendance_date = fields.Date(string='Attendance Date')
+    attendance_date = fields.Date(string='Attendance Date', default=lambda self: fields.Date.today())
+    checkin_time = fields.Datetime(string='Check-in Time', default=lambda self: fields.Datetime.now())
     status = fields.Selection([
         ('present', 'Present'),
         ('absent', 'Absent'),
         ('late', 'Late'),
     ], string='Status', default='present')
+    absence_notes = fields.Text(string="Absence Notes")
+    comments = fields.Text(string="Comments")
+    class_name = fields.Char(string="Class Name")
+    internal_notes = fields.Text(string="Internal Notes", invisible="True")
+
     # endregion
 
     # region  Special
@@ -55,6 +61,7 @@ class Attendance(models.Model):
         for record in self:
             if record.attendance_date:
                 record.last_4_weeks_start_date = record.attendance_date - timedelta(days=7 * 4)
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------

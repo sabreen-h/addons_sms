@@ -7,12 +7,19 @@
     <field name="model">sms_module.enrollment</field>
     <field name="arch" type="xml">
         <form>
-            <header></header>
+           <header>
+          <button string="Confirm" type="object" name="action_confirm" invisible="state != 'draft'" class="btn-primary"/>
+          <button string="Complete" type="object" name="action_complete" invisible="state != 'confirmed'" class="btn-success"/>
+          <button string="Cancel" type="object" name="action_cancel" invisible="not(state in ['draft', 'confirmed'])" class="btn-danger"/>
+          <button string="Reset to Draft" type="object" name="action_draft" invisible="not(state in ['cancelled', 'completed'])" class="btn-secondary"/>
+               <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,completed,cancelled" statusbar_colors='{"draft": "blue", "confirmed": "orange", "completed": "green", "cancelled": "red"}'/>
+        </header>
             <sheet>
                 <group>
                     <field name="enrollment_date"/>
                     <field name="student_id"/>
                     <field name="course_id"/>
+
                 </group>
             </sheet>
         </form>
@@ -28,6 +35,8 @@
             <field name="enrollment_date"/>
             <field name="student_id"/>
             <field name="course_id"/>
+            <field name="state"/>
+
         </tree>
     </field>
 </record>

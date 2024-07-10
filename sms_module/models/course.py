@@ -1,6 +1,7 @@
-from odoo import models, fields, api
-class Course(models.Model):
+from odoo import models, fields
 
+
+class Course(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.course"
     _description = "Course"
@@ -13,10 +14,12 @@ class Course(models.Model):
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
     name = fields.Char(string='Name')
-    description = fields.Html(string='Description' , tracking=1)
+    description = fields.Html(string='Description', tracking=1)
     syllabus = fields.Text(string='Syllabus')
     duration = fields.Integer(string='Duration (weeks)')
     prerequisites = fields.Text(string='Prerequisites')
+    is_featured = fields.Boolean(string='Featured Course')
+
     # endregion
 
     # region  Special
