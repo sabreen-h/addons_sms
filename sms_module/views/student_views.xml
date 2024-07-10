@@ -67,16 +67,33 @@
 
       <!--TODO[IMP]: <student> _view_search-->
 
-     <record id="student_view_search" model="ir.ui.view">
+    <record id="student_view_search" model="ir.ui.view">
         <field name="name">sms_module.student.search</field>
         <field name="model">sms_module.student</field>
         <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="date_of_birth"/>
-                <field name="student_id"/>
-                <group expand="1" string="Group By">
-                    <filter string="Student ID" name='student_id' context="{'group_by':'student_id'}"/>
+            <search string="Search Student">
+                <field name="name" string="Student Name"/>
+                <field name="student_id" string="Student ID"/>
+                <field name="date_of_birth" string="Date of Birth"/>
+                <field name="contact_details" string="Contact Details"/>
+                <field name="address" string="Address"/>
+                <field name="guardian_details" string="Guardian Details"/>
+
+                <!-- Custom Search Filters -->
+                <filter string="Active Students" name="active_students" domain="[('active', '=', True)]"/>
+                <filter string="Inactive Students" name="inactive_students" domain="[('active', '=', False)]"/>
+                <separator/>
+
+                <!-- Date Filters -->
+                <filter string="Birth Date Today" name="dob_today" domain="[('date_of_birth', '=', context_today())]"/>
+
+                <separator/>
+
+                <!-- Group By Filters -->
+               <group expand="1" string="Group By">
+                    <filter string="Student ID" name='group_by_student_id' context="{'group_by':'student_id'}"/>
+                    <filter string="Date of Birth" name='group_by_dob' context="{'group_by':'date_of_birth'}"/>
+                    <filter string="Creation Date" name="group_by_creation_date" context="{'group_by': 'create_date'}"/>
                 </group>
             </search>
         </field>

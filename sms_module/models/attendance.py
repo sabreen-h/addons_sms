@@ -1,8 +1,10 @@
 from odoo import models, fields, api
+from datetime import timedelta
+
 from odoo.exceptions import ValidationError
 
-class Attendance(models.Model):
 
+class Attendance(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.attendance"
     _description = "Attendance"
@@ -34,10 +36,25 @@ class Attendance(models.Model):
     # endregion
 
     # region  Computed
+    yesterday_date = fields.Date(string="Yesterday", compute="_compute_yesterday_date", store=True)
+    last_4_weeks_start_date = fields.Date(string="Last 4 Weeks Start", compute="_compute_last_4_weeks_start_date",
+                                          store=True)
+
     # endregion
 
     # endregion
     # region ---------------------- TODO[IMP]: Compute methods ------------------------------------
+    @api.depends('attendance_date')
+    def _compute_yesterday_date(self):
+        for record in self:
+            if record.attendance_date:
+                record.yesterday_date = record.attendance_date - timedelta(days=1)
+
+    @api.depends('attendance_date')
+    def _compute_last_4_weeks_start_date(self):
+        for record in self:
+            if record.attendance_date:
+                record.last_4_weeks_start_date = record.attendance_date - timedelta(days=7 * 4)
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------

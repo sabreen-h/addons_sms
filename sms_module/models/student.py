@@ -30,6 +30,8 @@ class Student(models.Model):
     # endregion
 
     # region  Special
+    active = fields.Boolean(string='Active', default=True)
+
     # endregion
 
     # region  Relational
@@ -60,4 +62,10 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        domain = ['|', ('name', operator, name), ('student_id', operator, name)]
+        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
+
     # endregion

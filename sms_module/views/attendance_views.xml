@@ -1,72 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!--TODO[IMP]: <attendance> _view_form-->
-   <record id="attendance_view_form" model="ir.ui.view">
-    <field name="name">sms_module.attendance.form</field>
-    <field name="model">sms_module.attendance</field>
-    <field name="arch" type="xml">
-        <form>
-            <header></header>
-            <sheet>
-                <group>
-                    <field name="attendance_date"/>
-                    <field name="status"/>
-                    <field name="student_id"/>
-                    <field name="course_id"/>
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
-
-      <!--TODO[IMP]: <attendance> _view_tree-->
-   <record id="attendance_view_tree" model="ir.ui.view">
-    <field name="name">sms_module.attendance.tree</field>
-    <field name="model">sms_module.attendance</field>
-    <field name="arch" type="xml">
-        <tree>
-            <field name="attendance_date"/>
-            <field name="status"/>
-            <field name="student_id"/>
-            <field name="course_id"/>
-        </tree>
-    </field>
-</record>
-
-
-
-          <!--TODO[IMP]: <attendance> _view_search-->
-
-   <record id="attendance_view_search" model="ir.ui.view">
-    <field name="name">sms_module.attendance.search</field>
-    <field name="model">sms_module.attendance</field>
-    <field name="arch" type="xml">
-        <search>
-            <field name="attendance_date"/>
-            <filter name="status"  string="Status" domain="[('status', '=', 'present')]"/>
-            <field name="student_id"/>
-            <field name="course_id"/>
-            <group expand="1" string="Group By">
-                <filter name="attendance_date" string="Attendance Date"  context="{'group_by':'attendance_date'}"/>
-            </group>
-        </search>
-    </field>
-</record>
-
-
-<!--TODO[IMP]: <attendance> _action-->
-
-    <record id="attendance_action" model="ir.actions.act_window">
-            <field name="name">Attendance</field>
-            <field name="res_model">sms_module.attendance</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_available': 1}</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Create or manage attendance records</p>
-            </field>
+    <!-- Form View for Attendance -->
+    <record id="attendance_view_form" model="ir.ui.view">
+        <field name="name">sms_module.attendance.form</field>
+        <field name="model">sms_module.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="attendance_date"/>
+                        <field name="status"/>
+                        <field name="student_id"/>
+                        <field name="course_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
+    <!-- Tree View for Attendance -->
+    <record id="attendance_view_tree" model="ir.ui.view">
+        <field name="name">sms_module.attendance.tree</field>
+        <field name="model">sms_module.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="attendance_date"/>
+                <field name="status"/>
+                <field name="student_id"/>
+                <field name="course_id"/>
+            </tree>
+        </field>
+    </record>
 
+    <!-- Search View for Attendance -->
+    <record id="attendance_view_search" model="ir.ui.view">
+        <field name="name">sms_module.attendance.search</field>
+        <field name="model">sms_module.attendance</field>
+        <field name="arch" type="xml">
+            <search string="Search Attendance">
+                <field name="student_id" string="Student"/>
+                <field name="course_id" string="Course"/>
+                <field name="attendance_date" string="Attendance Date"/>
+                <field name="status" string="Status"/>
+
+                <!-- Status filters -->
+                <filter string="Present" name="present" domain="[('status', '=', 'present')]"/>
+                <filter string="Absent" name="absent" domain="[('status', '=', 'absent')]"/>
+
+                <!-- Date filters -->
+
+                <!-- Date filters -->
+            <filter string="Today" name="today" domain="[('attendance_date', '=', context_today())]"/>
+            <filter string="Yesterday" name="yesterday" domain="[('attendance_date', '=', 'yesterday_date')]"/>
+            <filter string="Last 4 Weeks" name="last_4_weeks" domain="[('attendance_date', '&gt;=', 'last_4_weeks_start_date')]"/>
+
+
+                <separator/>
+
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Student" name="group_by_student" context="{'group_by': 'student_id'}"/>
+                    <filter string="Course" name="group_by_course" context="{'group_by': 'course_id'}"/>
+                    <filter string="Year" name="group_by_year" context="{'group_by': 'attendance_date:year'}"/>
+                    <filter string="Quarter" name="group_by_quarter" context="{'group_by': 'attendance_date:quarter'}"/>
+                    <filter string="Month" name="group_by_month" context="{'group_by': 'attendance_date:month'}"/>
+                    <filter string="Day" name="group_by_day" context="{'group_by': 'attendance_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Attendance -->
+    <record id="attendance_action" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="res_model">sms_module.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_available': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create or manage attendance records</p>
+        </field>
+    </record>
 
 </odoo>
