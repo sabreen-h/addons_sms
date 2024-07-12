@@ -12,7 +12,7 @@
                     <group>
                         <field name="attendance_date"/>
                         <field name="status"/>
-                        <field name="absence_notes" invisible="[['status', '=', 'present']]" />
+                        <field name="absence_notes" invisible="status == 'present'"/>
                         <field name="student_id"/>
                         <field name="course_id"/>
                     </group>
@@ -21,22 +21,35 @@
         </field>
     </record>
 
+
+    <record id="action_update_attendance_status" model="ir.actions.server">
+    <field name="name">Update Attendance Status</field>
+    <field name="model_id" ref="model_sms_module_attendance"/>
+      <field name="binding_model_id" ref="model_sms_module_attendance"/>
+    <field name="state">code</field>
+    <field name="code">
+        model.action_update_attendance_status()
+    </field>
+   </record>
+
     <!-- Tree View for Attendance -->
     <record id="attendance_view_tree" model="ir.ui.view">
         <field name="name">sms_module.attendance.tree</field>
         <field name="model">sms_module.attendance</field>
         <field name="arch" type="xml">
-        <tree decoration-danger="status == 'absent'" decoration-success="status == 'present'">
+            <tree decoration-danger="status == 'absent'" decoration-success="status == 'present'">
+                <header>
+                    <button name="action_generate_attendance_today" string="Generate Today's Attendance" type="object" class="btn-primary"/>
+                    <button name="%(action_update_attendance_status)d" string="Archive Students" type="action" class="btn-danger"/>
+                </header>
                 <field name="attendance_date"/>
                 <field name="status"/>
-                <field name="absence_notes" />
+                <field name="absence_notes"/>
                 <field name="comments" optional="hide"/>
                 <field name="class_name" optional="show"/>
                 <field name="internal_notes" invisible="True"/>
                 <field name="student_id"/>
                 <field name="course_id"/>
-
-
             </tree>
         </field>
     </record>
@@ -56,7 +69,6 @@
                 <filter string="Present" name="present" domain="[('status', '=', 'present')]"/>
                 <filter string="Absent" name="absent" domain="[('status', '=', 'absent')]"/>
 
-                <!-- Date filters -->
 
                 <!-- Date filters -->
             <filter string="Today" name="today" domain="[('attendance_date', '=', context_today())]"/>

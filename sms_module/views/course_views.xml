@@ -12,6 +12,11 @@
                      <!-- Apply Web Ribbon Widget -->
                     <widget name="web_ribbon" title="Featured" bg_color="text-bg-danger" invisible="not is_featured">
                     </widget>
+                    <button name="action_view_enrollments" type="object" class="oe_stat_button" >
+                        <field name="enrollment_count" widget="statinfo" string="Enrollments" options="{'format': '%s Enrollments'}"/>
+                    </button>
+                    <button name="action_open_url" string="Open URL" type="object" class="btn-primary"/>
+
                 </header>
                 <sheet>
                     <div class="oe_title">

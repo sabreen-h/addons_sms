@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Course(models.Model):
@@ -31,10 +31,16 @@ class Course(models.Model):
     # endregion
 
     # region  Computed
+    enrollment_count = fields.Integer(string='Enrollment Count', compute='_compute_enrollment_count')
+
     # endregion
 
     # endregion
     # region ---------------------- TODO[IMP]: Compute methods ------------------------------------
+    @api.depends('enrollment_ids')
+    def _compute_enrollment_count(self):
+        for course in self:
+            course.enrollment_count = len(course.enrollment_ids)
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
@@ -45,6 +51,23 @@ class Course(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def action_view_enrollments(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Enrollments',
+            'view_mode': 'tree,form',
+            'res_model': 'sms_module.enrollment',
+            'domain': [('course_id', '=', self.id)],
+            'context': "{'default_course_id': %d}" % self.id,
+        }
+
+    def action_open_url(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': 'http://www.odoo.com',
+            'target': 'new',
+        }
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

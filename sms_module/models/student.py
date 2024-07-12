@@ -59,6 +59,9 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def archive_students(self):
+        students = self.env['sms_module.student'].search([('active', '=', True)])
+        students.write({'active': False})
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

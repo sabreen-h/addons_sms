@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 from datetime import timedelta
-
+from datetime import date
 from odoo.exceptions import ValidationError
 
 
@@ -61,7 +61,6 @@ class Attendance(models.Model):
         for record in self:
             if record.attendance_date:
                 record.last_4_weeks_start_date = record.attendance_date - timedelta(days=7 * 4)
-
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
@@ -80,6 +79,25 @@ class Attendance(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def action_generate_attendance_today(self):
+        today = date.today()
+        active_students = self.env['sms_module.student'].search([('active', '=', True)])
+        for student in active_students:
+            self.create({
+                'attendance_date': today,
+                'status': 'present',
+                'student_id': student.id,
+                'course_id': student.course_id.id if student.course_id else False
+            })
+
+    @api.model
+    def action_update_attendance_status(self):
+        today = date.today()
+        attendance_to_update = self.search([
+            ('attendance_date', '=', today),
+            ('status', '!=', 'present')
+        ])
+        attendance_to_update.write({'status': 'absent'})
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------
