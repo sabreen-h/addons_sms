@@ -72,8 +72,8 @@
 
                 <!-- Date filters -->
             <filter string="Today" name="today" domain="[('attendance_date', '=', context_today())]"/>
-            <filter string="Yesterday" name="yesterday" domain="[('attendance_date', '=', 'yesterday_date')]"/>
-            <filter string="Last 4 Weeks" name="last_4_weeks" domain="[('attendance_date', '&gt;=', 'last_4_weeks_start_date')]"/>
+            <filter string="Yesterday" name="yesterday" domain="[('attendance_date', '=', (context_today() - relativedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+            <filter string="Last 4 Weeks" name="last_4_weeks" domain="[('attendance_date', '>=', (context_today() - relativedelta(weeks=4)).strftime('%Y-%m-%d'))]"/>
 
 
                 <separator/>

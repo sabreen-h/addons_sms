@@ -16,6 +16,7 @@
                         <group>
                             <field name="name"/>
                             <field name="date_of_birth"/>
+                            <field name="age" readonly="1"/>
                             <field name="student_id"/>
                             <field name="description" widget="html"/>
 

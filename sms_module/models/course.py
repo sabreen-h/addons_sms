@@ -13,6 +13,7 @@ class Course(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
+    course_id = fields.Char(string='Course ID')
     name = fields.Char(string='Name')
     description = fields.Html(string='Description', tracking=1)
     syllabus = fields.Text(string='Syllabus')

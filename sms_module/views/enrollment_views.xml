@@ -19,6 +19,8 @@
                     <field name="enrollment_date"/>
                     <field name="student_id"/>
                     <field name="course_id"/>
+                    <field name="course_name" readonly="1"/>
+                    <field name="course_duration" readonly="1"/>
 
                 </group>
             </sheet>

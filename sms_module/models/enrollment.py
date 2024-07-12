@@ -1,5 +1,6 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 from odoo.exceptions import ValidationError
+from datetime import date
 
 
 class Enrollment(models.Model):
@@ -33,7 +34,9 @@ class Enrollment(models.Model):
 
     # region  Relational
     student_id = fields.Many2one('sms_module.student', string='Student', domain=[('active', '=', True)])
-    course_id = fields.Many2one('sms_module.course', string='Course')
+    course_id = fields.Many2one('sms_module.course', string='Course ID')
+    course_name = fields.Char(string='Course Name', related='course_id.name')
+    course_duration = fields.Integer(string='Course Duration', readonly=True)
 
     # endregion
 
@@ -45,6 +48,15 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
+
+    @api.onchange('course_id')
+    def _onchange_course_id(self):
+        for record in self:
+            if record.course_id:
+                record.course_duration = record.course_id.duration
+            else:
+                record.course_duration = 0
+
     @api.constrains('enrollment_date', 'student_id', 'course_id')
     def _check_unique_enrollment(self):
         for record in self:
@@ -53,6 +65,12 @@ class Enrollment(models.Model):
                      ('student_id', '=', record.student_id.id),
                      ('course_id', '=', record.course_id.id)]) > 1:
                 raise ValidationError('Enrollment for this student in this course on this date already exists.')
+
+    @api.constrains('enrollment_date')
+    def _check_enrollment_date(self):
+        for record in self:
+            if record.enrollment_date and record.enrollment_date > date.today():
+                raise exceptions.ValidationError("Enrollment date cannot be in the future.")
 
     # endregion
 

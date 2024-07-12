@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from dateutil.relativedelta import relativedelta
+from datetime import date
 
 
 class Student(models.Model):
@@ -40,10 +42,20 @@ class Student(models.Model):
     # endregion
 
     # region  Computed
+    age = fields.Integer(string='Age', compute='_compute_age')
     # endregion
 
     # endregion
     # region ---------------------- TODO[IMP]: Compute methods ------------------------------------
+    @api.depends('date_of_birth')
+    def _compute_age(self):
+        today = date.today()
+        for record in self:
+            if record.date_of_birth:
+                birth_date = fields.Date.from_string(record.date_of_birth)
+                record.age = relativedelta(today, birth_date).years
+            else:
+                record.age = 0
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
