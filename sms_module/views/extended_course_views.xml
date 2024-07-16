@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <!--TODO[IMP]: <course> _view_form-->
-
-    <record id="course_view_form" model="ir.ui.view">
-        <field name="name">sms_module.course.form</field>
-        <field name="model">sms_module.course</field>
+    <!-- Extended Course Form View -->
+    <record id="extended_course_view_form" model="ir.ui.view">
+        <field name="name">sms_module.extended_course.form</field>
+        <field name="model">sms_module.extended_course</field>
         <field name="arch" type="xml">
             <form>
-
                 <header>
                     <button name="action_open_url" string="Open URL" type="object" class="btn-primary"/>
                 </header>
                 <sheet>
-                     <!-- Apply smart button -->
-                    <div name="button_box" class="oe_button_box">
-                        <button name="action_view_enrollments" type="object"   icon="fa-book">
-                            <field name="enrollment_count" widget="statinfo" string="Enrollments" />
-                        </button>
-                    </div>
-                    <!-- Apply Web Ribbon Widget -->
-                    <widget name="web_ribbon" title="Featured" bg_color="text-bg-success" invisible="not is_featured"/>
-                    <widget name="web_ribbon" title="Not Featured" bg_color="text-bg-danger" invisible="is_featured"/>
-
-
                     <div class="oe_title">
-                        <h1 style="color: #5b4f72;" ><i class="fa fa-book"></i> Course Name: <field name="name"/>
+                        <h1 style="color: #5b4f72;"><i class="fa fa-book"></i> Course Name: <field name="name"/>
                         </h1>
                     </div>
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="duration"/>
-
                         </group>
                         <group>
                             <field name="syllabus"/>
                             <field name="prerequisites"/>
+                            <field name="course_prerequisite"/>
                             <field name="is_featured"/>
                         </group>
                     </group>
@@ -48,54 +35,45 @@
                                 </tree>
                             </field>
                         </page>
-
                         <page string="Description">
                             <field name="description" placeholder="Description" widget="html" options="{'toolbar': 'full', 'height': '100px'}"/>
                         </page>
-
                     </notebook>
-
-
-
                 </sheet>
-
-                 <!-- Chatter Section -->
+                <!-- Chatter Section -->
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" />
-                    <field name="activity_ids" />
-                    <field name="message_ids" />
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
                 </div>
-
             </form>
         </field>
     </record>
 
-        <!--TODO[IMP]: <course> _view_tree-->
-
-
-     <record id="course_view_tree" model="ir.ui.view">
-        <field name="name">sms_module.course.tree</field>
-        <field name="model">sms_module.course</field>
+    <!-- Extended Course Tree View -->
+    <record id="extended_course_view_tree" model="ir.ui.view">
+        <field name="name">sms_module.extended_course.tree</field>
+        <field name="model">sms_module.extended_course</field>
         <field name="arch" type="xml">
-            <tree string="Courses">
+            <tree string="Extended Courses">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="duration"/>
+                <field name="course_prerequisite"/>
             </tree>
         </field>
     </record>
 
-
-        <!--TODO[IMP]: <course> _view_search-->
-
-    <record id="course_view_search" model="ir.ui.view">
-        <field name="name">sms_module.course.search</field>
-        <field name="model">sms_module.course</field>
+    <!-- Extended Course Search View -->
+    <record id="extended_course_view_search" model="ir.ui.view">
+        <field name="name">sms_module.extended_course.search</field>
+        <field name="model">sms_module.extended_course</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="description"/>
                 <field name="duration"/>
+                <field name="course_prerequisite"/>
                 <group expand="1" string="Group By">
                     <filter string="Duration" name='duration' context="{'group_by':'duration'}"/>
                     <filter string="Name" name='name' context="{'group_by':'name'}"/>
@@ -104,20 +82,14 @@
         </field>
     </record>
 
-
-      <!--TODO[IMP]: <course> _action-->
-
-    <record id="course_action" model="ir.actions.act_window">
-            <field name="name">Courses</field>
-            <field name="res_model">sms_module.course</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_available': 1}</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Create or manage course records</p>
-            </field>
+    <!-- Extended Course Action -->
+    <record id="extended_course_action" model="ir.actions.act_window">
+        <field name="name">Extended Courses</field>
+        <field name="res_model">sms_module.extended_course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_available': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create or manage extended course records</p>
+        </field>
     </record>
-
-
-
-
 </odoo>

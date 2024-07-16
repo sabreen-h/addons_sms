@@ -13,4 +13,4 @@ The Student Management System (SMS) is a comprehensive Odoo module designed to m
 ## Installation
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/sabreen-h/student_management.git
+   git clone https://github.com/sabreen-h/addons_sms.git

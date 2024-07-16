@@ -16,11 +16,19 @@ class Attendance(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
+    @api.model
+    def _default_attendance_date(self):
+        return fields.Date.today()
+
+    @api.model
+    def _default_checkin_time(self):
+        return fields.Datetime.now()
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
-    attendance_date = fields.Date(string='Attendance Date', default=lambda self: fields.Date.today())
-    checkin_time = fields.Datetime(string='Check-in Time', default=lambda self: fields.Datetime.now())
+    attendance_date = fields.Date(string='Attendance Date', default=_default_attendance_date)
+    checkin_time = fields.Datetime(string='Check-in Time', default=_default_checkin_time)
     status = fields.Selection([
         ('present', 'Present'),
         ('absent', 'Absent'),
@@ -68,23 +76,17 @@ class Attendance(models.Model):
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
     def action_generate_attendance_today(self):
         today = date.today()
-        active_students = self.env['sms_module.student'].search([('active', '=', True)])
-        for student in active_students:
-            self.create({
-                'attendance_date': today,
-                'status': 'present',
-                'student_id': student.id,
-                'course_id': student.course_id.id if student.course_id else False
-            })
+        for record in self:
+            if not self.search([('attendance_date', '=', today), ('student_id', '=', record.student_id.id),
+                                ('course_id', '=', record.course_id.id)]):
+                self.create({
+                    'attendance_date': today,
+                    'status': 'present',
+                    'student_id': record.student_id.id,
+                    'course_id': record.course_id.id
+                })
 
-    @api.model
-    def action_update_attendance_status(self):
-        today = date.today()
-        attendance_to_update = self.search([
-            ('attendance_date', '=', today),
-            ('status', '!=', 'present')
-        ])
-        attendance_to_update.write({'status': 'absent'})
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

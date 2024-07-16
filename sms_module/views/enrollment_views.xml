@@ -17,7 +17,7 @@
             <sheet>
                 <group>
                     <field name="enrollment_date"/>
-                    <field name="student_id"/>
+                    <field name="student_id" context="{'display_id': True}"/>
                     <field name="course_id"/>
                     <field name="course_name" readonly="1"/>
                     <field name="course_duration" readonly="1"/>
@@ -95,9 +95,9 @@
     <field name="model">sms_module.enrollment</field>
     <field name="arch" type="xml">
         <calendar string="Enrollments" date_start="enrollment_date" date_stop="enrollment_date"  event_limit="5"
-                  event_open_popup="True">
+                  event_open_popup="Ture" quick_create="0" color="state">
             <field name="student_id" string="Student"/>
-            <field name="course_id" string="Course"/>
+            <field name="course_id" string="Course" filters="1"/>
             <field name="enrollment_date"/>
         </calendar>
     </field>

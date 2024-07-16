@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Emergency Contact Form View -->
+    <record id="emergency_contact_view_form" model="ir.ui.view">
+        <field name="name">sms_module.emergency_contact.form</field>
+        <field name="model">sms_module.emergency_contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 style="color: #5b4f72;"><i class="fa fa-phone"></i> Emergency Contact: <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="contact_type"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- Chatter Section -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Emergency Contact Tree View -->
+    <record id="emergency_contact_view_tree" model="ir.ui.view">
+        <field name="name">sms_module.emergency_contact.tree</field>
+        <field name="model">sms_module.emergency_contact</field>
+        <field name="arch" type="xml">
+            <tree string="Emergency Contacts">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="student_id"/>
+                <field name="contact_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Emergency Contact Search View -->
+    <record id="emergency_contact_view_search" model="ir.ui.view">
+        <field name="name">sms_module.emergency_contact.search</field>
+        <field name="model">sms_module.emergency_contact</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="contact_type"/>
+                <group expand="1" string="Group By">
+                    <filter string="Student" name='student_id' context="{'group_by':'student_id'}"/>
+                    <filter string="Contact Type" name='contact_type' context="{'group_by':'contact_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Emergency Contact Action -->
+    <record id="emergency_contact_action" model="ir.actions.act_window">
+        <field name="name">Emergency Contacts</field>
+        <field name="res_model">sms_module.emergency_contact</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_available': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create or manage emergency contact records</p>
+        </field>
+    </record>
+</odoo>

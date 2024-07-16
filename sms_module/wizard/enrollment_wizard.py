@@ -39,20 +39,27 @@ class EnrollmentWizard(models.TransientModel):
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
-    def enroll_students(self):
-        Enrollment = self.env['sms_module.enrollment']
-        for wizard in self:
-            for student in wizard.student_ids:
-                if not Enrollment.search([('student_id', '=', student.id), ('course_id', '=', wizard.course_id.id)]):
-                    Enrollment.create({
-                        'student_id': student.id,
-                        'course_id': wizard.course_id.id,
-                        'enrollment_date': fields.Date.today(),
-                    })
-                else:
-                    raise ValidationError(
-                        f'The student {student.name} is already enrolled in the course {wizard.course_id.name}.')
-        return {'type': 'ir.actions.act_window_close'}
+
+    def action_enroll_students(self):
+        enrollments = []
+        for student in self.student_ids:
+            enrollments.append({
+                'enrollment_date': fields.Date.today(),
+                'student_id': student.id,
+                'course_id': self.course_id.id,
+            })
+        self.env['sms_module.enrollment'].create(enrollments)
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Success',
+                'message': 'Students enrolled successfully.',
+                'type': 'success',
+                'next': {'type': 'ir.actions.act_window_close'},
+                'sticky': False,
+            }
+        }
 
     # endregion
 

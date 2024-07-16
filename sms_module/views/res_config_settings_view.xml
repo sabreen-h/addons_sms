@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sms_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sms.module</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="15"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="SMS Management" string="SMS Management" name="sms_module">
+                    <block title="SMS Module Settings" name="sms_module">
+                        <setting string="Default Course Duration" help="Set the default duration for courses" id="default_course_duration_setting">
+                            <field name="default_course_duration"/>
+                        </setting>
+                        <setting string="Max Students Per Course" help="Set the maximum number of students allowed per course" id="max_students_per_course_setting">
+                            <field name="max_students_per_course"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="sms_config_settings_action" model="ir.actions.act_window">
+        <field name="name">SMS Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="context">{'module' : 'sms_module','search_default_available': 1}</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

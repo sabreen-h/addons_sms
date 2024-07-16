@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Form View for Attendance -->
+    <!--TODO[IMP]: <attendance> _view_form-->
     <record id="attendance_view_form" model="ir.ui.view">
         <field name="name">sms_module.attendance.form</field>
         <field name="model">sms_module.attendance</field>
@@ -9,8 +9,13 @@
             <form>
                 <header></header>
                 <sheet>
+                     <div class="oe_title">
+                        <h1 style="color: #5b4f72;"> <i class="fa fa-calendar"></i> Attendance Date: <field name="attendance_date"/>
+                        </h1>
+                    </div>
                     <group>
                         <field name="attendance_date"/>
+                        <field name="checkin_time" />
                         <field name="status"/>
                         <field name="absence_notes" invisible="status == 'present'"/>
                         <field name="student_id"/>
@@ -22,17 +27,20 @@
     </record>
 
 
-    <record id="action_update_attendance_status" model="ir.actions.server">
-    <field name="name">Update Attendance Status</field>
-    <field name="model_id" ref="model_sms_module_attendance"/>
-      <field name="binding_model_id" ref="model_sms_module_attendance"/>
-    <field name="state">code</field>
-    <field name="code">
-        model.action_update_attendance_status()
-    </field>
-   </record>
+    <!-- Server Action to generate attendance  -->
+    <record id="action_generate_attendance" model="ir.actions.server">
+        <field name="name">Generate Attendance</field>
+        <field name="model_id" ref="sms_module.model_sms_module_attendance"/>
+        <field name="binding_model_id" ref="sms_module.model_sms_module_attendance"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_generate_attendance_today()
+        </field>
+    </record>
 
-    <!-- Tree View for Attendance -->
+
+
+   <!--TODO[IMP]: <attendance> _view_tree-->
     <record id="attendance_view_tree" model="ir.ui.view">
         <field name="name">sms_module.attendance.tree</field>
         <field name="model">sms_module.attendance</field>
@@ -40,7 +48,6 @@
             <tree decoration-danger="status == 'absent'" decoration-success="status == 'present'">
                 <header>
                     <button name="action_generate_attendance_today" string="Generate Today's Attendance" type="object" class="btn-primary"/>
-                    <button name="%(action_update_attendance_status)d" string="Archive Students" type="action" class="btn-danger"/>
                 </header>
                 <field name="attendance_date"/>
                 <field name="status"/>
@@ -54,7 +61,8 @@
         </field>
     </record>
 
-    <!-- Search View for Attendance -->
+
+    <!--TODO[IMP]: <attendance> _view_search-->
     <record id="attendance_view_search" model="ir.ui.view">
         <field name="name">sms_module.attendance.search</field>
         <field name="model">sms_module.attendance</field>
@@ -82,24 +90,23 @@
                 <group expand="0" string="Group By">
                     <filter string="Student" name="group_by_student" context="{'group_by': 'student_id'}"/>
                     <filter string="Course" name="group_by_course" context="{'group_by': 'course_id'}"/>
-                    <filter string="Year" name="group_by_year" context="{'group_by': 'attendance_date:year'}"/>
-                    <filter string="Quarter" name="group_by_quarter" context="{'group_by': 'attendance_date:quarter'}"/>
-                    <filter string="Month" name="group_by_month" context="{'group_by': 'attendance_date:month'}"/>
-                    <filter string="Day" name="group_by_day" context="{'group_by': 'attendance_date:day'}"/>
+                    <filter string="Date" name="group_by_year" context="{'group_by': 'attendance_date'}"/>
+
                 </group>
             </search>
         </field>
     </record>
 
-    <!-- Action for Attendance -->
+    <!--TODO[IMP]: <attendance> _view_action-->
     <record id="attendance_action" model="ir.actions.act_window">
         <field name="name">Attendance</field>
         <field name="res_model">sms_module.attendance</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_available': 1}</field>
+        <field name="context">{'search_default_today': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create or manage attendance records</p>
         </field>
     </record>
+
 
 </odoo>

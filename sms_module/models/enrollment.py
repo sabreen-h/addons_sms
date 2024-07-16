@@ -33,10 +33,11 @@ class Enrollment(models.Model):
     # endregion
 
     # region  Relational
-    student_id = fields.Many2one('sms_module.student', string='Student', domain=[('active', '=', True)])
-    course_id = fields.Many2one('sms_module.course', string='Course ID')
-    course_name = fields.Char(string='Course Name', related='course_id.name')
-    course_duration = fields.Integer(string='Course Duration', readonly=True)
+    student_id = fields.Many2one('sms_module.student', string='Student', domain=[('active', '=', True)],
+                                 context={'display_id': True})
+    course_id = fields.Many2one('sms_module.course', string='Course')
+    course_name = fields.Char(string='Course Name', related='course_id.name' , readonly=True)
+    course_duration = fields.Integer(string='Course Duration', readonly=True , related='course_id.duration')
 
     # endregion
 
@@ -69,7 +70,7 @@ class Enrollment(models.Model):
     @api.constrains('enrollment_date')
     def _check_enrollment_date(self):
         for record in self:
-            if record.enrollment_date and record.enrollment_date > date.today():
+            if record.enrollment_date > date.today():
                 raise exceptions.ValidationError("Enrollment date cannot be in the future.")
 
     # endregion

@@ -4,17 +4,17 @@
 
     <!--TODO[IMP]: <enrollment_wizard> _view_form-->
 
-    <record id="view_enrollment_wizard_form" model="ir.ui.view">
+    <record id="enrollment_wizard_form_view" model="ir.ui.view">
         <field name="name">enrollment.wizard.form</field>
         <field name="model">sms_module.enrollment_wizard</field>
         <field name="arch" type="xml">
-            <form string="Enrollment Wizard">
+            <form string=" Enroll Students ">
                 <group>
                     <field name="student_ids" widget="many2many_tags"/>
                     <field name="course_id"/>
                 </group>
                 <footer>
-                    <button name="enroll_students" string="Enroll Students" type="object" class="btn-primary"/>
+                    <button name="action_enroll_students" string="Enroll Students" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
@@ -25,7 +25,7 @@
     <!--TODO[IMP]: <enrollment_wizard> _action-->
 
     <record id="action_enrollment_wizard" model="ir.actions.act_window">
-        <field name="name">Enrollment Wizard</field>
+        <field name="name">Bulk Enrollments </field>
         <field name="res_model">sms_module.enrollment_wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

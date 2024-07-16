@@ -7,24 +7,37 @@
 
         <!-- Operation Submenu -->
         <menuitem id="op_sub_menu" name="Operation" parent="top_menu" sequence="25"/>
+        <!-- Configuration Submenu -->
+         <menuitem id="config_menu" name="Configuration" parent="top_menu" sequence="30"/>
+
+        <menuitem id="menu_sms_config_settings" name="Settings" parent="config_menu"  sequence="35" action="sms_config_settings_action"/>
 
         <!-- Enrollment Wizard Submenu -->
-        <menuitem id="enrollment_wizard_menu" name="Enrollment Wizard" parent="top_menu" sequence="30" action="action_enrollment_wizard"/>
+        <menuitem id="enrollment_wizard_menu" name=" Bulk Enrollments " parent="top_menu" sequence="40" action="action_enrollment_wizard"/>
 
         <!-- Student Model Submenu -->
-        <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="35" action="student_action" />
+        <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="45" action="student_action" />
 
         <!-- Course Model Submenu -->
-        <menuitem id="course_menu" name="Courses" parent="op_sub_menu" sequence="40" action="course_action" />
+        <menuitem id="course_menu" name="Courses" parent="op_sub_menu" sequence="50" action="course_action" />
 
         <!-- Enrollment Model Submenu -->
-        <menuitem id="enrollment_menu" name="Enrollments" parent="op_sub_menu" sequence="45" action="enrollment_action" />
+        <menuitem id="enrollment_menu" name="Enrollments" parent="op_sub_menu" sequence="55" action="enrollment_action" />
 
         <!-- Grade Model Submenu -->
-        <menuitem id="grade_menu" name="Grades" parent="op_sub_menu" sequence="50" action="grade_action" />
+        <menuitem id="grade_menu" name="Grades" parent="op_sub_menu" sequence="60" action="grade_action" />
 
         <!-- Attendance Model Submenu -->
-        <menuitem id="attendance_menu" name="Attendance" parent="op_sub_menu" sequence="55" action="attendance_action" />
+        <menuitem id="attendance_menu" name="Attendance" parent="op_sub_menu" sequence="65" action="attendance_action" />
+
+        <!-- extended_course Model Submenu -->
+        <menuitem id="extended_course_menu" name="extended_course" parent="op_sub_menu" sequence="70" action="extended_course_action" />
+
+          <!-- emergency_contact Model Submenu -->
+        <menuitem id="emergency_contact_menu" name="emergency_contact" parent="op_sub_menu" sequence="65" action="emergency_contact_action" />
+
+
+
     </data>
 
 </odoo>
