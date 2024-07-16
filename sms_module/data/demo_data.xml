@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data noupdate="1">
+    <!-- Student Records -->
+    <record id="student_1" model="sms_module.student">
+        <field name="name">hassan</field>
+        <field name="student_id">STD/00001</field>
+        <field name="date_of_birth">2000-05-15</field>
+        <field name="contact_details">hassan@example.com</field>
+    </record>
+
+    <record id="student_2" model="sms_module.student">
+        <field name="name">Adel</field>
+        <field name="student_id">STD/00002</field>
+        <field name="date_of_birth">1998-09-21</field>
+        <field name="contact_details">adel@example.com</field>
+    </record>
+
+    <!-- Course Records -->
+    <record id="course_1" model="sms_module.course">
+        <field name="name">HTML</field>
+        <field name="description">html course</field>
+        <field name="duration">10</field>
+    </record>
+
+    <record id="course_2" model="sms_module.course">
+        <field name="name">CSS</field>
+        <field name="description">css course</field>
+        <field name="duration">12</field>
+    </record>
+
+
+     <!-- Enrollment Records -->
+    <record id="enrollment_1" model="sms_module.enrollment">
+        <field name="student_id" ref="student_1"/>
+        <field name="course_id" ref="course_1"/>
+        <field name="enrollment_date">2024-01-15</field>
+        <field name="state">confirmed</field>
+    </record>
+
+    <record id="enrollment_2" model="sms_module.enrollment">
+        <field name="student_id" ref="student_2"/>
+        <field name="course_id" ref="course_2"/>
+        <field name="enrollment_date">2024-01-20</field>
+        <field name="state">confirmed</field>
+    </record>
+
+    </data>
+</odoo>

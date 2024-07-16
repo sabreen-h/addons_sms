@@ -25,7 +25,8 @@ class Student(models.Model):
     contact_details = fields.Char(string='Contact Details', tracking=1)
     address = fields.Text(string='Address')
     guardian_details = fields.Text(string='Guardian Details')
-    student_id = fields.Char(string="Student ID", required=True, default=lambda self: self.env['ir.sequence'].next_by_code('student.id'))
+    student_id = fields.Char(string="Student ID", required=True,
+                             default=lambda self: self.env['ir.sequence'].next_by_code('student.id'))
     national_doc = fields.Binary(string='National Document', attachment=True)
     image = fields.Image(string='Image', attachment=True)
 
@@ -39,11 +40,10 @@ class Student(models.Model):
     # region  Relational
     enrollment_ids = fields.One2many('sms_module.enrollment', 'student_id', string='Enrollments', tracking=1)
 
-
     # endregion
 
     # region  Computed
-    age = fields.Integer(string='Age', compute='_compute_age')
+    age = fields.Integer(string='Age', compute='_compute_age' , store=True)
 
     # endregion
 
@@ -67,6 +67,13 @@ class Student(models.Model):
                 record.display_name = f"[{record.student_id}] {record.name}"
             else:
                 record.display_name = record.name
+
+    @api.model
+    def get_adult_students(self):
+        age_threshold = self.env.context.get('age_threshold', 18)
+        adult_students = self.search([('age', '>=', age_threshold)])
+        return adult_students
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
@@ -84,10 +91,22 @@ class Student(models.Model):
         if vals.get('student_id', 'New') == 'New':
             vals['student_id'] = self.env['ir.sequence'].next_by_code('sms_module_student_id_sequence') or 'New'
         return super(Student, self).create(vals)
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
 
+    @api.model
+    def action_trigger_students_age(self):
+        # age_threshold = self.env.context.get('age_threshold', 18)
+        adult_students = self.with_context(age_threshold=18).get_adult_students()
+        return {
+            'name': 'Adult Students',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'tree,form',
+            'res_model': 'sms_module.student',
+            'domain': [('id', 'in', adult_students.ids)],
+        }
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

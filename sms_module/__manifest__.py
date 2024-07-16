@@ -41,12 +41,20 @@
 
         'wizard/make_enrollment_wizard_views.xml',
 
-        'views/menus.xml'
+        'views/menus.xml',
+
+        'data/demo_data.xml',
 
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'sms_module/static/description/icon.png',
+        ],
+    },
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'data/demo_data.xml',
     ],
 
 

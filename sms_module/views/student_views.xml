@@ -7,7 +7,8 @@
         <field name="model">sms_module.student</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
+                <header>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1 style="color: #5b4f72;"  ><i class="fa fa-user"></i> Student Name: <field name="name"/>
@@ -61,13 +62,14 @@
     </record>
 
 
-<!--    <record id="student_action_archive" model="ir.actions.server">-->
-<!--    <field name="name">Archive Students</field>-->
-<!--    <field name="model_id" ref="model_sms_module_student"/>-->
-<!--    <field name="binding_model_id" ref="model_sms_module_student"/>-->
-<!--    <field name="state">code</field>-->
-<!--    <field name="code">model.archive_students()</field>-->
-<!--    </record>-->
+    <record id="action_trigger_students_age" model="ir.actions.server">
+        <field name="name">Trigger Adult Students</field>
+        <field name="model_id" ref="model_sms_module_student"/>
+        <field name="binding_model_id" ref="model_sms_module_student"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_trigger_students_age()</field>
+    </record>
+
 
 
     <!--TODO[IMP]: <student> _view_tree-->
