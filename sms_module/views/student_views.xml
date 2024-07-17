@@ -21,6 +21,8 @@
                             <field name="date_of_birth"/>
                             <field name="age" readonly="1"/>
                             <field name="student_id"/>
+                            <field name="email"/>
+                            <field name="gender"/>
                         </group>
 
                         <group >
@@ -69,6 +71,18 @@
         <field name="state">code</field>
         <field name="code">action = model.action_trigger_students_age()</field>
     </record>
+
+<record id="action_report_student_detail" model="ir.actions.report">
+    <field name="name">Student report</field>
+    <field name="model">sms_module.student</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sms_module.report_student_template</field>
+    <field name="report_file">ssms_module.report_student_template</field>
+    <field name="print_report_name">'Student Report - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_sms_module_student"/>
+    <field name="binding_type">report</field>
+</record>
+
 
 
 

@@ -41,6 +41,9 @@
 
         'wizard/make_enrollment_wizard_views.xml',
 
+        'views/report/report_student.xml',
+
+
         'views/menus.xml',
 
         'data/demo_data.xml',

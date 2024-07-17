@@ -1,0 +1,95 @@
+<odoo>
+    <template id="report_student_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="student">
+                <style>
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+                    th, td {
+                        border: 1px solid black;
+                        padding: 8px;
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #f2f2f2;
+                    }
+                </style>
+
+                <div class="page">
+                    <h2>Student Report</h2>
+                    <h3>Student Profile</h3>
+                    <p>Name: <span t-esc="student.name"/></p>
+                    <p>Email: <span t-esc="student.email"/></p>
+                    <p>Date of Birth: <span t-esc="student.date_of_birth"/></p>
+                    <p>Gender: <span t-esc="student.gender"/></p>
+
+                    <h3>Courses Enrolled</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Enrollment Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="student.enrollment_ids" t-as="enrollment">
+                                <tr>
+                                    <td><span t-esc="enrollment.course_id.name"/></td>
+                                    <td><span t-esc="enrollment.enrollment_date"/></td>
+                                    <td><span t-esc="enrollment.state"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <h3>Grades</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <t t-foreach="student.grade_ids" t-as="grade">
+                                <tr>
+                                    <td><span t-esc="grade.course_id.name"/></td>
+                                    <td><span t-esc="grade.grade"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <h3>Attendance</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                 <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="student.attendance_ids" t-as="attendance">
+                                <tr>
+                                    <td><span t-esc="attendance.attendance_date"/></td>
+                                    <td><span t-esc="attendance.status"/></td>
+                                    <td><span t-esc="attendance.course_id.name"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <h3>Additional Notes</h3>
+                    <p><span t-esc="student.description"/></p>
+
+                    <p>Report Generated on: <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')"/></p>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

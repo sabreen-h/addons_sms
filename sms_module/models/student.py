@@ -20,7 +20,7 @@ class Student(models.Model):
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
     name = fields.Char(string='Name')
-    description = fields.Html(string='Description', tracking=1)
+    description = fields.Html(string='Description')
     date_of_birth = fields.Date(string='Date of Birth')
     contact_details = fields.Char(string='Contact Details', tracking=1)
     address = fields.Text(string='Address')
@@ -29,6 +29,8 @@ class Student(models.Model):
                              default=lambda self: self.env['ir.sequence'].next_by_code('student.id'))
     national_doc = fields.Binary(string='National Document', attachment=True)
     image = fields.Image(string='Image', attachment=True)
+    email = fields.Char(string='Email')
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
 
     # endregion
 
@@ -39,6 +41,10 @@ class Student(models.Model):
 
     # region  Relational
     enrollment_ids = fields.One2many('sms_module.enrollment', 'student_id', string='Enrollments', tracking=1)
+    grade_ids = fields.One2many('sms_module.grade', 'student_id', string='Grades')
+    attendance_ids = fields.One2many('sms_module.attendance', 'student_id', string='Attendance Records')
+
+
 
     # endregion
 
