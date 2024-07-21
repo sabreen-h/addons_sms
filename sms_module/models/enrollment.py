@@ -36,8 +36,9 @@ class Enrollment(models.Model):
     student_id = fields.Many2one('sms_module.student', string='Student', domain=[('active', '=', True)],
                                  context={'display_id': True})
     course_id = fields.Many2one('sms_module.course', string='Course')
-    course_name = fields.Char(string='Course Name', related='course_id.name' , readonly=True)
-    course_duration = fields.Integer(string='Course Duration', readonly=True , related='course_id.duration')
+    course_name = fields.Char(string='Course Name', related='course_id.name', readonly=True)
+    course_duration = fields.Integer(string='Course Duration', readonly=True, related='course_id.duration')
+    teacher_id = fields.Many2one('res.users', string='Teacher', related='course_id.teacher_id', store=True)
 
     # endregion
 

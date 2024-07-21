@@ -35,6 +35,8 @@ class Course(models.Model):
 
     # region  Relational
     enrollment_ids = fields.One2many('sms_module.enrollment', 'course_id', string='Enrollments')
+    teacher_id = fields.Many2one('res.users', string='Teacher', required=True)
+
 
     # endregion
 

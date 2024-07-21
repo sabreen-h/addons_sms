@@ -1,5 +1,4 @@
 from odoo import models, fields, api
-from datetime import timedelta
 from datetime import date
 from odoo.exceptions import ValidationError
 
@@ -13,6 +12,7 @@ class Attendance(models.Model):
          'UNIQUE(attendance_date, student_id, course_id)',
          'Attendance for this student in this course on this date already exists.')
     ]
+
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
@@ -47,6 +47,8 @@ class Attendance(models.Model):
     # region  Relational
     student_id = fields.Many2one('sms_module.student', string='Student')
     course_id = fields.Many2one('sms_module.course', string='Course')
+    teacher_id = fields.Many2one(related='course_id.teacher_id', string='Teacher', store=True, readonly=True)
+
     # endregion
 
     # region  Computed
@@ -68,6 +70,7 @@ class Attendance(models.Model):
                      ('student_id', '=', record.student_id.id),
                      ('course_id', '=', record.course_id.id)]) > 1:
                 raise ValidationError('Attendance for this student in this course on this date already exists.')
+
     # endregion
 
     # region ---------------------- TODO[IMP]: CRUD Methods -------------------------------------
@@ -85,7 +88,6 @@ class Attendance(models.Model):
                     'student_id': record.student_id.id,
                     'course_id': record.course_id.id
                 })
-
 
     # endregion
 
