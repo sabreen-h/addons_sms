@@ -1,0 +1,1535 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sms_module
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 11:24+0000\n"
+"PO-Revision-Date: 2024-07-17 11:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.enrollment_wizard_menu
+msgid " Bulk Enrollments "
+msgstr "تسجيل كمية من الطلاب"
+
+#. module: sms_module
+#: model:ir.actions.report,print_report_name:sms_module.action_report_student_detail
+msgid "'Student Report - %s' % (object.name)"
+msgstr " "
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__type
+msgid ""
+"- Contact: Use this to organize the contact details of employees of a given company (e.g. CEO, CFO, ...).\n"
+"- Invoice Address: Preferred address for all invoices. Selected by default when you invoice an order that belongs to this company.\n"
+"- Delivery Address: Preferred address for all deliveries. Selected by default when you deliver an order that belongs to this company.\n"
+"- Other: Other address for the company (e.g. subsidiary, ...)"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_form
+msgid "<i class=\"fa fa-book\"/> Course Name:"
+msgstr "اسم المادة:"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_form
+msgid "<i class=\"fa fa-calendar\"/> Attendance Date:"
+msgstr "تاريخ الحضور"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.emergency_contact_view_form
+msgid "<i class=\"fa fa-phone\"/> Emergency Contact:"
+msgstr "تواصل التطوارئ"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "<i class=\"fa fa-user\"/> Student Name:"
+msgstr "اسم الطالب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__absence_notes
+msgid "Absence Notes"
+msgstr "اسباب الغياب"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_attendance__status__absent
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Absent"
+msgstr "غائب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_needaction
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_needaction
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_needaction
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_needaction
+msgid "Action Needed"
+msgstr "الفعل اللازم"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__active
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__active_lang_count
+msgid "Active Lang Count"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Active Students"
+msgstr "الطلاب النشطة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_ids
+msgid "Activities"
+msgstr "الانشطة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "وقت الانشطة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_state
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_state
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_state
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_state
+msgid "Activity State"
+msgstr "حاله النشاط"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_type_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_type_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_type_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "نوع النشاط"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "Additional Information"
+msgstr "معلومات اضافيه"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Additional Notes"
+msgstr "ملاحظات اضافيه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__address
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Address"
+msgstr "العنوان"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__type
+msgid "Address Type"
+msgstr "نوع العنوان"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__age
+msgid "Age"
+msgstr "العمر"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__lang
+msgid ""
+"All the emails and documents sent to this contact will be translated in this"
+" language."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_emergency_contact__contact_type__alternate
+msgid "Alternate"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_attachment_count
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_attachment_count
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_attachment_count
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.attendance_action
+#: model:ir.model,name:sms_module.model_sms_module_attendance
+#: model:ir.ui.menu,name:sms_module.attendance_menu
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Attendance"
+msgstr "الحضور"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__attendance_date
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Attendance Date"
+msgstr "تاريخ الحضور"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__attendance_ids
+msgid "Attendance Records"
+msgstr "عدد الحضور"
+
+#. module: sms_module
+#: model:ir.model.constraint,message:sms_module.constraint_sms_module_attendance_attendance_date_student_course_unique
+msgid ""
+"Attendance for this student in this course on this date already exists."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__avatar_1920
+msgid "Avatar"
+msgstr "افاتار"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__avatar_1024
+msgid "Avatar 1024"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__avatar_128
+msgid "Avatar 128"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__avatar_256
+msgid "Avatar 256"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__avatar_512
+msgid "Avatar 512"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__bank_ids
+msgid "Banks"
+msgstr "البنوك"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__barcode
+msgid "Barcode"
+msgstr "باركود"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Birth Date Today"
+msgstr "تاريخ الميلاد اليوم"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__is_blacklisted
+msgid "Blacklist"
+msgstr "قائمة الحظر"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_bounce
+msgid "Bounce"
+msgstr "نقاط اضافية"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.action_enrollment_wizard
+msgid "Bulk Enrollments "
+msgstr "تسجيل كمية من الطلاب"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_wizard_form_view
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_enrollment__state__cancelled
+msgid "Cancelled"
+msgstr "تم الغاءه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__channel_ids
+msgid "Channels"
+msgstr "قنوات"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "تحقق مما إذا كانت جهة الاتصال شركة أم أنها شخص"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__employee
+msgid "Check this box if this contact is an Employee."
+msgstr "حدد هذا المربع إذا كانت جهة الاتصال هذه موظفًا."
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__checkin_time
+msgid "Check-in Time"
+msgstr "وقت تسجيل الوصول"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__city
+msgid "City"
+msgstr "مدينة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__class_name
+msgid "Class Name"
+msgstr "اسم الفصل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__color
+msgid "Color Index"
+msgstr "لون النص"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__comments
+msgid "Comments"
+msgstr "تعليقات"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "كيان تجاري"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__company_id
+msgid "Company"
+msgstr "شركه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__company_registry
+msgid "Company ID"
+msgstr "رقم الشركة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__company_name
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__commercial_company_name
+msgid "Company Name Entity"
+msgstr "اسم الشركة الكيان"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__company_type
+msgid "Company Type"
+msgstr "نوع الشركة"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_form
+msgid "Complete"
+msgstr "اكتمل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__contact_address
+msgid "Complete Address"
+msgstr "عنوان كامل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__complete_name
+msgid "Complete Name"
+msgstr "اسم الشركة"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_enrollment__state__completed
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.config_menu
+msgid "Configuration"
+msgstr "الاعدادات"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_form
+msgid "Confirm"
+msgstr "تاكيد"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_enrollment__state__confirmed
+msgid "Confirmed"
+msgstr "تم تاكيده"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_res_partner
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__child_ids
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__contact_details
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Contact Details"
+msgstr "تفاصيل جهه الاتصال"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__contact_type
+#: model_terms:ir.ui.view,arch_db:sms_module.emergency_contact_view_search
+msgid "Contact Type"
+msgstr "نوع خهة الاتصال"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "Contact details"
+msgstr "تفاصيل جهه الاتصال"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr "عدد الايميلات الاضافية لهذه الجهه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__country_id
+msgid "Country"
+msgstr "بلد"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__country_code
+msgid "Country Code"
+msgstr "كود البلد"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_course
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__course_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__course_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__course_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__course_id
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_calendar
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Course"
+msgstr "مادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__course_duration
+msgid "Course Duration"
+msgstr "مدة المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__course_name
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Course Name"
+msgstr "اسم المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__course_prerequisite
+msgid "Course Prerequisite"
+msgstr "متطلبات المادة"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.course_action
+#: model:ir.ui.menu,name:sms_module.course_menu
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_tree
+msgid "Courses"
+msgstr "المواد"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Courses Enrolled"
+msgstr "المواد المسجلة"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.attendance_action
+msgid "Create or manage attendance records"
+msgstr "اضافة او ادارة الحضور"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.course_action
+msgid "Create or manage course records"
+msgstr "اضافة او ادارة المادة"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.emergency_contact_action
+msgid "Create or manage emergency contact records"
+msgstr "ادارة او اضافة طوارئ"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.enrollment_action
+msgid "Create or manage enrollment records"
+msgstr "اضافة او ادارة تسجيل"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.extended_course_action
+msgid "Create or manage extended course records"
+msgstr "اضافة او اداره مواد اضافية"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.grade_action
+msgid "Create or manage grade records"
+msgstr "اضافة او ادارة درجات"
+
+#. module: sms_module
+#: model_terms:ir.actions.act_window,help:sms_module.student_action
+msgid "Create or manage student records"
+msgstr "اضافة او ادارة طالب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__create_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__create_uid
+msgid "Created by"
+msgstr "تمت اضافته بواسطة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__create_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__create_date
+msgid "Created on"
+msgstr "تمت اضافته على"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Creation Date"
+msgstr "تاريخ الانشاء"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__date
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__date_of_birth
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Date of Birth"
+msgstr "تاريخ ميلاد"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Date of Birth:"
+msgstr "تاريخ ميلاد:"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_res_config_settings__default_course_duration
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "Default Course Duration"
+msgstr "مدة المادة الافتراضيه"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_res_config_settings__default_course_duration
+msgid "Default duration for courses in the SMS module."
+msgstr "مدة المادة الافتراضيه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__description
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__description
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__description
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "Description"
+msgstr "وصف"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__display_name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_enrollment__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_search
+msgid "Duration"
+msgstr "مدة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__duration
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__duration
+msgid "Duration (weeks)"
+msgstr "المدة(اسابيع)"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__partner_share
+msgid ""
+"Either customer (not a user), either shared user. Indicated the current "
+"partner is a customer without access or with a limited access created for "
+"sharing data."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__email
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__email
+msgid "Email"
+msgstr "بريد الكترونى"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Email:"
+msgstr "بريد الكترونى:"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_emergency_contact__contact_type__emergency
+msgid "Emergency"
+msgstr "طوارئ"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_emergency_contact
+msgid "Emergency Contact"
+msgstr "جهه الطوارئ"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.emergency_contact_action
+#: model_terms:ir.ui.view,arch_db:sms_module.emergency_contact_view_tree
+msgid "Emergency Contacts"
+msgstr "جهه اتصال الطوارئ"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__employee
+msgid "Employee"
+msgstr "عامل"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_wizard_form_view
+msgid "Enroll Students"
+msgstr "سجل طلاب"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_enrollment
+msgid "Enrollment"
+msgstr "تسجيل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__enrollment_count
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__enrollment_count
+msgid "Enrollment Count"
+msgstr "عدد التسجيلات"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__enrollment_date
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Enrollment Date"
+msgstr "تاريخ التسجيل"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_enrollment_wizard
+msgid "Enrollment Wizard"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.enrollment_action
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__enrollment_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__enrollment_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__enrollment_ids
+#: model:ir.ui.menu,name:sms_module.enrollment_menu
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_calendar
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "Enrollments"
+msgstr "تسجيلات"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_extended_course
+msgid "Extended Course"
+msgstr "مادة اضافية"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.extended_course_action
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_tree
+msgid "Extended Courses"
+msgstr "مواد اضافية"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+msgid "Featured"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__is_featured
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__is_featured
+msgid "Featured Course"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_student__gender__female
+msgid "Female"
+msgstr "انثى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_follower_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_follower_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_follower_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_follower_ids
+msgid "Followers"
+msgstr "متابعين"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_partner_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_partner_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_partner_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "متابعين"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__activity_type_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__activity_type_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__activity_type_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr "تنسيق البريد الالكترونى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__email_formatted
+msgid "Formatted Email"
+msgstr "تنسيق البريد الالكترونى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Gender:"
+msgstr "الجنس:"
+
+#. module: sms_module
+#: model:ir.actions.server,name:sms_module.action_generate_attendance
+msgid "Generate Attendance"
+msgstr "اخذ الحضور"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_tree
+msgid "Generate Today's Attendance"
+msgstr "اخذ حضور اليوم"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__partner_latitude
+msgid "Geo Latitude"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__partner_longitude
+msgid "Geo Longitude"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_grade
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__grade
+#: model_terms:ir.ui.view,arch_db:sms_module.grade_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Grade"
+msgstr "درجة"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.grade_action
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__grade_ids
+#: model:ir.ui.menu,name:sms_module.grade_menu
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Grades"
+msgstr "درجات"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_form
+msgid "Gradian Details"
+msgstr "تفاصيل الاب"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.emergency_contact_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.grade_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Group By"
+msgstr "مجمعة ب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__guardian_details
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Guardian Details"
+msgstr "تفاصيل الاب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__has_message
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__has_message
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__has_message
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__has_message
+msgid "Has Message"
+msgstr "لدية رسالة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__id
+msgid "ID"
+msgstr "رقم تسلسلى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__im_status
+msgid "IM Status"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_exception_icon
+msgid "Icon"
+msgstr "ايقونه"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__activity_exception_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__activity_exception_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__activity_exception_icon
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__message_needaction
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__message_needaction
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__message_needaction
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__message_has_error
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__message_has_error
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__message_has_error
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__is_blacklisted
+msgid ""
+"If the email address is on the blacklist, the contact won't receive mass "
+"mailing anymore, from any list"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__image_1920
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__image
+msgid "Image"
+msgstr "صورة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Inactive Students"
+msgstr "طلاب غير نشطين"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__industry_id
+msgid "Industry"
+msgstr "صناعة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__contact_address_inline
+msgid "Inlined Complete Address"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__internal_notes
+msgid "Internal Notes"
+msgstr "ملاحظات"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_is_follower
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_is_follower
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_is_follower
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__is_public
+msgid "Is Public"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__is_company
+msgid "Is a Company"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__function
+msgid "Job Position"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__lang
+msgid "Language"
+msgstr "لغة"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Last 4 Weeks"
+msgstr "اخر اربع اسابيع"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__write_uid
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__write_uid
+msgid "Last Updated by"
+msgstr "اخر تعديل بواسطة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__write_date
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__write_date
+msgid "Last Updated on"
+msgstr "اخر تعديل على"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_attendance__status__late
+msgid "Late"
+msgstr "تاخير"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_student__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: sms_module
+#: model:res.groups,name:sms_module.group_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "Max Students Per Course"
+msgstr "اقصى عدد للطلاب فى المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_res_config_settings__max_students_per_course
+msgid "Maximum Number of Students per Course"
+msgstr "اقصى عدد للطلاب فى المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_res_config_settings__max_students_per_course
+msgid "Maximum number of students allowed per course."
+msgstr "اقصى عدد للطلاب فى المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_has_error
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_has_error
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_has_error
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_has_error
+msgid "Message Delivery error"
+msgstr "رساله خطا"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_ids
+msgid "Messages"
+msgstr "رسائل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__mobile
+msgid "Mobile"
+msgstr "موبيل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد انتهاء النشاط"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__name
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__name
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_search
+msgid "Name"
+msgstr "اسم"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Name:"
+msgstr "الاسم:"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__national_doc
+msgid "National Document"
+msgstr "بطاقة الرقم القومي"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "معد انتهاء النشاط التالى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_summary
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_summary
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_summary
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_type_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_type_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_type_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالى"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__email_normalized
+msgid "Normalized Email"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+msgid "Not Featured"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__comment
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الافعال"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__message_needaction_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__message_needaction_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__message_needaction_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الراسائل التى تتطلب فعل"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__message_has_error_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__message_has_error_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__message_has_error_counter
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التى بها اخطاء"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.course_view_form
+#: model_terms:ir.ui.view,arch_db:sms_module.extended_course_view_form
+msgid "Open URL"
+msgstr "افتح اللينك"
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.op_sub_menu
+msgid "Operation"
+msgstr "عملية"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__parent_name
+msgid "Parent name"
+msgstr "اسم الاب"
+
+#. module: sms_module
+#: model:res.groups,name:sms_module.group_guardian
+msgid "Parent/Guardian"
+msgstr "الاب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__partner_id
+msgid "Partner"
+msgstr "شريك"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__same_company_registry_partner_id
+msgid "Partner with same Company Registry"
+msgstr "شريك مع نفس الشركة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__same_vat_partner_id
+msgid "Partner with same Tax ID"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__phone
+msgid "Phone"
+msgstr "تليفون"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__prerequisites
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__prerequisites
+msgid "Prerequisites"
+msgstr "متطلبات"
+
+#. module: sms_module
+#: model:ir.model.fields.selection,name:sms_module.selection__sms_module_attendance__status__present
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Present"
+msgstr "حاضر"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__rating_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__rating_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__rating_ids
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__rating_ids
+msgid "Ratings"
+msgstr "تقييم"
+
+#. module: sms_module
+#: model:res.groups,name:sms_module.group_readonly
+msgid "Read-Only User"
+msgstr "مستخدم قراءه فقط"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__ref
+msgid "Reference"
+msgstr "مرجع"
+
+#. module: sms_module
+#: model:res.groups,name:sms_module.group_registrar
+msgid "Registrar"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__parent_id
+msgid "Related Company"
+msgstr "شركة ذات صلة"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Report Generated on:"
+msgstr "تاريخ انشاء التقرير:"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_form
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__activity_user_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activity_user_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__activity_user_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__activity_user_id
+msgid "Responsible User"
+msgstr "مستخدم مسؤل"
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.top_menu
+msgid "SMS"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.module.category,description:sms_module.module_sms_category
+msgid "SMS Category Group"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "SMS Management"
+msgstr "نظام اداره الطلاب"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "SMS Module Settings"
+msgstr "اعدادات نظام اداره الطلاب"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.sms_config_settings_action
+msgid "SMS Settings"
+msgstr "اعدادات نظام اداره الطلاب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__user_id
+msgid "Salesperson"
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Search Attendance"
+msgstr "بحث الحضور"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Search Student"
+msgstr "بحث الطاالب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__self
+msgid "Self"
+msgstr "نفس"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "Set the default duration for courses"
+msgstr "حدد مدة الكورس"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.sms_config_settings_view_form
+msgid "Set the maximum number of students allowed per course"
+msgstr "حدد اقصلى عدد مسموح للطلاب"
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.menu_sms_config_settings
+msgid "Settings"
+msgstr "اعدادات"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__partner_share
+msgid "Share Partner"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__signup_expiration
+msgid "Signup Expiration"
+msgstr "انتهاء صليحة التسجيل"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__signup_token
+msgid "Signup Token"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__signup_type
+msgid "Signup Token Type"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__signup_valid
+msgid "Signup Token is Valid"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__signup_url
+msgid "Signup URL"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__starred_message_ids
+msgid "Starred Message"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__state_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__status
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__activity_state
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__activity_state
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__activity_state
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__street
+msgid "Street"
+msgstr "شارع"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__street2
+msgid "Street2"
+msgstr "شارع2"
+
+#. module: sms_module
+#: model:ir.model,name:sms_module.model_sms_module_student
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_attendance__student_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment__student_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_grade__student_id
+#: model:res.groups,name:sms_module.group_student
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.emergency_contact_view_search
+#: model_terms:ir.ui.view,arch_db:sms_module.enrollment_view_calendar
+msgid "Student"
+msgstr "طالب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_res_partner__student_id
+#: model:ir.model.fields,field_description:sms_module.field_res_users__student_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__student_id
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_student__student_id
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Student ID"
+msgstr "رقم الطالب التسلسلى"
+
+#. module: sms_module
+#: model:ir.model.constraint,message:sms_module.constraint_sms_module_student_student_id_unique
+msgid "Student ID must be unique!"
+msgstr "رقم الطلاب يجب ان يكون مميز"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_search
+msgid "Student Name"
+msgstr "اسم الطالب"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Student Profile"
+msgstr "صفحة الطالب"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.report_student_template
+msgid "Student Report"
+msgstr "تقرير الطالب"
+
+#. module: sms_module
+#: model:ir.actions.report,name:sms_module.action_report_student_detail
+msgid "Student report"
+msgstr "تقرير الطالب"
+
+#. module: sms_module
+#: model:ir.actions.act_window,name:sms_module.student_action
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_enrollment_wizard__student_ids
+#: model:ir.ui.menu,name:sms_module.student_menu
+#: model_terms:ir.ui.view,arch_db:sms_module.student_view_tree
+msgid "Students"
+msgstr "الطلاب"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_course__syllabus
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_extended_course__syllabus
+msgid "Syllabus"
+msgstr "شرح المادة"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__category_id
+msgid "Tags"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__vat
+msgid "Tax ID"
+msgstr ""
+
+#. module: sms_module
+#: model:res.groups,name:sms_module.group_teacher
+msgid "Teacher"
+msgstr "مدرس"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__vat
+msgid ""
+"The Tax Identification Number. Values here will be validated based on the "
+"country format. You can use '/' to indicate that the partner is not subject "
+"to tax."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__user_id
+msgid "The internal user in charge of this contact."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__company_registry
+msgid ""
+"The registry number of the company. Use it if it is different from the Tax "
+"ID. It must be unique across all partners of a same country"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.constraint,message:sms_module.constraint_sms_module_enrollment_student_course_enrollment_date_unique
+msgid "The student is already enrolled in this course on this date."
+msgstr "هذا الطالب بالفعل مسجل فى هذه المادة فى هذا الموعد"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__email_normalized
+msgid ""
+"This field is used to search on email address as the primary email field can"
+" contain more than strictly an email address."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__tz
+msgid "Timezone"
+msgstr "تةقيت المنطقه"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__tz_offset
+msgid "Timezone offset"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__title
+msgid "Title"
+msgstr "عنوان"
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Today"
+msgstr "اليوم"
+
+#. module: sms_module
+#: model:ir.actions.server,name:sms_module.action_trigger_students_age
+msgid "Trigger Adult Students"
+msgstr "الطلاب البالغين"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_course__activity_exception_decoration
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__activity_exception_decoration
+#: model:ir.model.fields,help:sms_module.field_sms_module_extended_course__activity_exception_decoration
+#: model:ir.model.fields,help:sms_module.field_sms_module_student__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__barcode
+msgid "Use a barcode to identify this contact."
+msgstr ""
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__user_ids
+msgid "Users"
+msgstr "المستخدمين"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__website
+msgid "Website Link"
+msgstr "لينك  الموقع"
+
+#. module: sms_module
+#: model:ir.model.fields,help:sms_module.field_sms_module_emergency_contact__tz
+msgid ""
+"When printing documents and exporting/importing data, time values are computed according to this timezone.\n"
+"If the timezone is not set, UTC (Coordinated Universal Time) is used.\n"
+"Anywhere else, time values are computed according to the time offset of your web client."
+msgstr ""
+
+#. module: sms_module
+#: model_terms:ir.ui.view,arch_db:sms_module.attendance_view_search
+msgid "Yesterday"
+msgstr "امس"
+
+#. module: sms_module
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__zip
+msgid "Zip"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.module.category,name:sms_module.module_sms_category
+msgid "base_category"
+msgstr ""
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.emergency_contact_menu
+msgid "emergency_contact"
+msgstr "جهة اتصال الطوارئ"
+
+#. module: sms_module
+#: model:ir.ui.menu,name:sms_module.extended_course_menu
+msgid "extended_course"
+msgstr "مادة اضافية"
+
+

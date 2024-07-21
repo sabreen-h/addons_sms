@@ -74,11 +74,6 @@ class Student(models.Model):
             else:
                 record.display_name = record.name
 
-    @api.model
-    def get_adult_students(self):
-        age_threshold = self.env.context.get('age_threshold', 18)
-        adult_students = self.search([('age', '>=', age_threshold)])
-        return adult_students
 
     # endregion
 
@@ -103,8 +98,14 @@ class Student(models.Model):
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
 
     @api.model
+    def get_adult_students(self):
+        age_threshold = self.env.context.get('age_threshold', 18)
+        adult_students = self.search([('age', '>=', age_threshold)])
+        return adult_students
+
+    @api.model
     def action_trigger_students_age(self):
-        # age_threshold = self.env.context.get('age_threshold', 18)
+
         adult_students = self.with_context(age_threshold=18).get_adult_students()
         return {
             'name': 'Adult Students',
