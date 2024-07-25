@@ -39,6 +39,7 @@ class Attendance(models.Model):
     class_name = fields.Char(string="Class Name")
     internal_notes = fields.Text(string="Internal Notes", invisible="True")
 
+
     # endregion
 
     # region  Special
@@ -52,11 +53,18 @@ class Attendance(models.Model):
     # endregion
 
     # region  Computed
+    is_present = fields.Boolean(string='Is Present', compute='_compute_is_present', store=True)
+
 
     # endregion
 
     # endregion
     # region ---------------------- TODO[IMP]: Compute methods ------------------------------------
+    @api.depends('status')
+    def _compute_is_present(self):
+        for record in self:
+            record.is_present = record.status == 'present'
+
     #
     # endregion
 

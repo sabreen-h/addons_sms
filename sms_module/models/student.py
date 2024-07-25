@@ -4,11 +4,14 @@ from dateutil.relativedelta import relativedelta
 from datetime import date
 
 
+
+
 class Student(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.student"
     _description = "Student"
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = "priority"
 
     _sql_constraints = [
         ('student_id_unique', 'UNIQUE(student_id)', 'Student ID must be unique!')
@@ -16,6 +19,7 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]:Default Methods ------------------------------------
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
@@ -31,6 +35,11 @@ class Student(models.Model):
     image = fields.Image(string='Image', attachment=True)
     email = fields.Char(string='Email')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
+    priority = fields.Integer(default=10)
+    priority_level = fields.Selection([('low', 'Low'), ('medium', 'Medium'), ('high', 'High')])
+    submit_evaluation = fields.Boolean(string='Submit Evaluation', default=False)
+    mood_feedback = fields.Char(string='Mood Feedback')
+    course_level = fields.Integer(string="Course Level")
 
     # endregion
 
@@ -43,13 +52,17 @@ class Student(models.Model):
     enrollment_ids = fields.One2many('sms_module.enrollment', 'student_id', string='Enrollments', tracking=1)
     grade_ids = fields.One2many('sms_module.grade', 'student_id', string='Grades')
     attendance_ids = fields.One2many('sms_module.attendance', 'student_id', string='Attendance Records')
-
-
+    course_id = fields.Many2one('sms_module.course', string='Course')
 
     # endregion
 
     # region  Computed
-    age = fields.Integer(string='Age', compute='_compute_age' , store=True)
+    age = fields.Integer(string='Age', compute='_compute_age', store=True)
+    attendance_percentage = fields.Float(string='Attendance Percentage', compute='_compute_attendance_percentage',
+                                         store=True)
+    profile_link = fields.Char(string='Profile Link', compute='_compute_profile_link')
+    preferred_course = fields.Many2one('sms_module.course', string="Preferred Course")
+    filtered_course_ids = fields.Many2many('sms_module.course', compute='_compute_filtered_course_ids', store=False)
 
     # endregion
 
@@ -74,7 +87,26 @@ class Student(models.Model):
             else:
                 record.display_name = record.name
 
+    @api.depends('attendance_ids')
+    def _compute_attendance_percentage(self):
+        for student in self:
+            total_attendances = len(student.attendance_ids)
+            attended_count = sum(attendance.status == 'present' for attendance in student.attendance_ids)
+            student.attendance_percentage = (attended_count / total_attendances * 100) if total_attendances > 0 else 0.0
 
+    @api.depends('student_id')
+    def _compute_profile_link(self):
+        for record in self:
+            record.profile_link = f"/web#id={record.id}&view_type=form&model=sms_module.student"
+
+    @api.depends('course_level')
+    def _compute_filtered_course_ids(self):
+        for rec in self:
+            if rec.course_level == 0:
+                rec.filtered_course_ids = self.env['sms_module.course'].search([])
+            else:
+                rec.filtered_course_ids = self.env['sms_module.course'].search(
+                    [('course_level', '=', rec.course_level)])
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
@@ -114,6 +146,24 @@ class Student(models.Model):
             'res_model': 'sms_module.student',
             'domain': [('id', 'in', adult_students.ids)],
         }
+
+    def action_generate_attendance_today(self):
+        today = date.today()
+        attendance_model = self.env['sms_module.attendance']
+        for student in self:
+            if student.active:
+                existing_attendance = attendance_model.search([
+                    ('attendance_date', '=', today),
+                    ('student_id', '=', student.id),
+                    ('course_id', '=', student.course_id.id)
+                ])
+                if not existing_attendance:
+                    attendance_model.create({
+                        'attendance_date': today,
+                        'status': 'present',
+                        'student_id': student.id,
+                        'course_id': student.course_id.id
+                    })
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

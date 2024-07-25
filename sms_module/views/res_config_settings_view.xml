@@ -10,7 +10,7 @@
                 <app data-string="SMS Management" string="SMS Management" name="sms_module">
                     <block title="SMS Module Settings" name="sms_module">
                         <setting string="Default Course Duration" help="Set the default duration for courses" id="default_course_duration_setting">
-                            <field name="default_course_duration"/>
+                            <field name="default_duration"/>
                         </setting>
                         <setting string="Max Students Per Course" help="Set the maximum number of students allowed per course" id="max_students_per_course_setting">
                             <field name="max_students_per_course"/>

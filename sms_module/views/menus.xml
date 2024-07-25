@@ -16,7 +16,7 @@
         <menuitem id="enrollment_wizard_menu" name=" Bulk Enrollments " parent="top_menu" sequence="40" action="action_enrollment_wizard"/>
 
         <!-- Student Model Submenu -->
-        <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="45" action="student_action" />
+        <menuitem id="student_menu" name="Students" parent="op_sub_menu" sequence="45" action="student_action"  />
 
         <!-- Course Model Submenu -->
         <menuitem id="course_menu" name="Courses" parent="op_sub_menu" sequence="50" action="course_action" />

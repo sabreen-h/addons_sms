@@ -5,12 +5,12 @@ class ResConfigSettings(models.TransientModel):
     _name = 'res.config.settings'
     _inherit = 'res.config.settings'
 
-    default_course_duration = fields.Integer(
+    default_duration = fields.Integer(
         string='Default Course Duration',
         config_parameter='sms_module.default_course_duration',
         default=10,
         help="Default duration for courses in the SMS module.",
-        default_model='res.config.settings',
+        default_model='sms_module.course',
     )
     max_students_per_course = fields.Integer(
         string='Maximum Number of Students per Course',

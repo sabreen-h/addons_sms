@@ -24,9 +24,10 @@ class Course(models.Model):
     name = fields.Char(string='Name')
     description = fields.Html(string='Description', tracking=1)
     syllabus = fields.Text(string='Syllabus')
-    duration = fields.Integer(string='Duration (weeks)', default=lambda self: self._default_course_duration())
+    duration = fields.Integer(string='Duration (weeks)')
     prerequisites = fields.Text(string='Prerequisites')
     is_featured = fields.Boolean(string='Featured Course')
+    course_level = fields.Integer(string='Course Level')
 
     # endregion
 
@@ -35,13 +36,14 @@ class Course(models.Model):
 
     # region  Relational
     enrollment_ids = fields.One2many('sms_module.enrollment', 'course_id', string='Enrollments')
-    teacher_id = fields.Many2one('res.users', string='Teacher', required=True)
-
+    teacher_id = fields.Many2one('res.users', string='Teacher')
 
     # endregion
 
     # region  Computed
     enrollment_count = fields.Integer(string='Enrollment Count', compute='_compute_enrollment_count')
+    completion_percentage = fields.Float(string='Completion Percentage', compute='_compute_completion_percentage',
+                                         store=True)
 
     # endregion
 
@@ -51,6 +53,13 @@ class Course(models.Model):
     def _compute_enrollment_count(self):
         for course in self:
             course.enrollment_count = len(course.enrollment_ids)
+
+    @api.depends('enrollment_ids')
+    def _compute_completion_percentage(self):
+        for course in self:
+            total_enrollments = len(course.enrollment_ids)
+            max_enrollment = self._max_students_per_course()
+            course.completion_percentage = total_enrollments / max_enrollment * 100
 
     # endregion
 

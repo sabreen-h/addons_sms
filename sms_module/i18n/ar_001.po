@@ -75,7 +75,7 @@ msgid "Action Needed"
 msgstr "الفعل اللازم"
 
 #. module: sms_module
-#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__active
+#: model:ir.model.fields,field_description:sms_module.field_sms_module_emergency_contact__activeb
 #: model:ir.model.fields,field_description:sms_module.field_sms_module_student__active
 msgid "Active"
 msgstr "نشط"

@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <form string=" Enroll Students ">
                 <group>
-                    <field name="student_ids" widget="many2many_tags"/>
+                    <field name="student_ids" widget="many2many_checkboxes"/>
                     <field name="course_id"/>
                 </group>
                 <footer>
