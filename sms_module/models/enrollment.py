@@ -1,4 +1,4 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, api, exceptions , _
 from odoo.exceptions import ValidationError
 from datetime import date
 
@@ -7,6 +7,7 @@ class Enrollment(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.enrollment"
     _description = "Enrollment"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _sql_constraints = [
         ('student_course_enrollment_date_unique',
          'UNIQUE(student_id, course_id, enrollment_date)',
@@ -98,4 +99,40 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------
+    @api.model
+    def create(self, vals):
+        enrollment = super(Enrollment, self).create(vals)
+        enrollment._post_enrollment_message()
+        return enrollment
+
+    def write(self, vals):
+        res = super(Enrollment, self).write(vals)
+        if 'state' in vals:
+            self._post_state_change_message()
+        return res
+
+    def _post_enrollment_message(self):
+        for record in self:
+            self.message_post(
+                body=_("Student %s has been enrolled in the course %s on %s.") % (
+                    record.student_id.name, record.course_name, record.enrollment_date),
+                message_type='notification',
+                subtype_xmlid='mail.mt_note'
+            )
+
+    def _post_state_change_message(self):
+        for record in self:
+            state_changes = {
+                'confirmed': "Enrollment confirmed.",
+                'completed': "Enrollment completed.",
+                'cancelled': "Enrollment cancelled.",
+                'draft': "Enrollment set to draft."
+            }
+            message = state_changes.get(record.state, "State updated.")
+            self.message_post(
+                body=_("Enrollment for student %s in course %s has been %s.") % (
+                    record.student_id.name, record.course_name, message),
+                message_type='notification',
+                subtype_xmlid='mail.mt_note'
+            )
     # endregion
