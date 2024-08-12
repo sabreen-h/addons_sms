@@ -1,0 +1,24 @@
+<odoo>
+<!--    &lt;!&ndash; Model definition for attendance &ndash;&gt;-->
+<!--    <record id="model_attendance" model="ir.model">-->
+<!--        <field name="name">sms_module.attendance</field>-->
+<!--        <field name="model">sms_module.attendance</field>-->
+<!--    </record>-->
+
+
+     <record id="ir_cron_generate_absent_records" model="ir.cron">
+        <field name="name">Generate Absent Records</field>
+        <field name="model_id" ref="model_sms_module_attendance"/>
+        <field name="state">code</field>
+        <field name="code">model.generate_absent_records()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True"/>
+<!--          <field name="nextcall" eval="'2024-08-12 10:22:00'"/>-->
+<!--        <field name="nextcall" eval="(fields.Datetime.now() + relativedelta(days=1)).replace(hour=23, minute=59, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>-->
+        <field name="nextcall" eval="(DateTime.now().replace(hour=23, minute=59, second=0, microsecond=0) + timedelta(days=0)).strftime('%Y-%m-%d %H:%M:%S')" />
+
+    </record>
+
+</odoo>

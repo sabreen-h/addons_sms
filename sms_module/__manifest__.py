@@ -28,7 +28,7 @@
         'security/ir.model.access.csv',
 
         'data/student_id_sequence.xml',
-
+        'data/ir_cron_data.xml',
         'views/student_views.xml',
         'views/course_views.xml',
         'views/enrollment_views.xml',

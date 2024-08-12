@@ -1,6 +1,9 @@
 from odoo import models, fields, api
 from datetime import date
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class Attendance(models.Model):
@@ -96,6 +99,31 @@ class Attendance(models.Model):
                     'student_id': record.student_id.id,
                     'course_id': record.course_id.id
                 })
+
+    @api.model
+    def generate_absent_records(self):
+        try:
+            today = fields.Date.today()
+            students = self.env['sms_module.student'].search([])  # Adjust domain as needed
+            for student in students:
+                # Check if student has assignments for today
+                assignments = self.env['sms_module.attendance'].search([
+                    ('student_id', '=', student.id),
+                    ('attendance_date', '=', today)
+                ])
+                if not assignments:
+                    # Create absent record
+                    self.create({
+                        'student_id': student.id,
+                        'attendance_date': today,
+                        'status': 'absent'
+                    })
+            _logger.info('Absent records generation completed successfully.')
+        except Exception as e:
+            _logger.error('Error generating absent records: %s', e)
+            raise UserError('An error occurred while generating absent records: %s' % e)
+
+
 
     # endregion
 

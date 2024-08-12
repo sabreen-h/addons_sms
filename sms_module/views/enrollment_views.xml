@@ -110,8 +110,6 @@
     </field>
 </record>
 
-
-
       <!--TODO[IMP]: <enrollment> _action-->
 
     <record id="enrollment_action" model="ir.actions.act_window">

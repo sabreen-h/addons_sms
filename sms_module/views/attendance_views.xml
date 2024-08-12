@@ -98,6 +98,8 @@
         </field>
     </record>
 
+
+
     <!--TODO[IMP]: <attendance> _view_action-->
     <record id="attendance_action" model="ir.actions.act_window">
         <field name="name">Attendance</field>
