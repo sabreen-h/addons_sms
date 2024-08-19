@@ -1,3 +1,5 @@
+from dateutil.relativedelta import relativedelta
+
 from odoo import models, fields, api, exceptions , _
 from odoo.exceptions import ValidationError
 from datetime import date
@@ -78,12 +80,30 @@ class Enrollment(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: CRUD Methods -------------------------------------
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Action Methods -------------------------------------
+    def _send_enrollment_notification(self, record):
+        notification_deadline = record.enrollment_date + relativedelta(days=2)
+        if fields.Date.today() <= notification_deadline:
+            body = _(
+                "A new student, %s, has been enrolled in your course %s on %s."
+                % (record.student_id.name, record.course_id.name, record.enrollment_date)
+            )
+            self.env['mail.activity'].create({
+                'activity_type_id': self.env.ref('mail.mail_activity_data_todo').id,
+                'note': body,
+                'res_id': record.id,
+                'res_model_id': self.env.ref('sms_module.model_sms_module_enrollment').id,
+                'user_id': record.teacher_id.id,
+                'date_deadline': notification_deadline
+            })
+
     def action_confirm(self):
         for record in self:
             record.state = 'confirmed'
+            self._send_enrollment_notification(record)
 
     def action_complete(self):
         for record in self:

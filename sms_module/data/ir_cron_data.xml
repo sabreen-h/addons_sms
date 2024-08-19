@@ -17,8 +17,7 @@
         <field name="active" eval="True"/>
 <!--          <field name="nextcall" eval="'2024-08-12 10:22:00'"/>-->
 <!--        <field name="nextcall" eval="(fields.Datetime.now() + relativedelta(days=1)).replace(hour=23, minute=59, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>-->
-        <field name="nextcall" eval="(DateTime.now().replace(hour=23, minute=59, second=0, microsecond=0) + timedelta(days=0)).strftime('%Y-%m-%d %H:%M:%S')" />
-
+       <field name="nextcall" eval="(DateTime.now().replace(hour=23, minute=59, second=0, microsecond=0) + timedelta(days=1 if DateTime.now().hour >= 23 else 0)).strftime('%Y-%m-%d %H:%M:%S')"/>
     </record>
 
 </odoo>

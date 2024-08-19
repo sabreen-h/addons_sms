@@ -159,7 +159,7 @@
                 <field name="name" type="row"/>
 <!--                 <field name=" course_id" type="col" />-->
 <!--                <field name="enrollment_ids" type="col"/>-->
-<!--                <field name="attendance_percentage" />-->
+<!--                <field name="attendance_percentage"  />-->
 <!--                <field name="grade_ids"  />-->
 
             </pivot>
@@ -172,7 +172,7 @@
     <record id="student_action" model="ir.actions.act_window">
             <field name="name">Students</field>
             <field name="res_model">sms_module.student</field>
-           <field name="view_mode">tree,pivot</field>
+           <field name="view_mode">form,tree,pivot</field>
             <field name="context">{'search_filter_name': 1 , 'display_id':True}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create or manage student records</p>
