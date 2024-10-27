@@ -4,8 +4,6 @@ from dateutil.relativedelta import relativedelta
 from datetime import date
 
 
-
-
 class Student(models.Model):
     # region ---------------------- TODO[IMP]: Private Attributes --------------------------------
     _name = "sms_module.student"
@@ -23,7 +21,7 @@ class Student(models.Model):
     # endregion
 
     # region ---------------------- TODO[IMP]: Fields Declaration ---------------------------------
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Name', required=True, tracking=True)
     description = fields.Html(string='Description')
     date_of_birth = fields.Date(string='Date of Birth')
     contact_details = fields.Char(string='Contact Details', tracking=1)
@@ -107,6 +105,7 @@ class Student(models.Model):
             else:
                 rec.filtered_course_ids = self.env['sms_module.course'].search(
                     [('course_level', '=', rec.course_level)])
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Constrains and Onchanges ---------------------------
@@ -142,7 +141,7 @@ class Student(models.Model):
         return {
             'name': 'Adult Students',
             'type': 'ir.actions.act_window',
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'sms_module.student',
             'domain': [('id', 'in', adult_students.ids)],
         }
@@ -164,6 +163,7 @@ class Student(models.Model):
                         'student_id': student.id,
                         'course_id': student.course_id.id
                     })
+
     # endregion
 
     # region ---------------------- TODO[IMP]: Business Methods -------------------------------------

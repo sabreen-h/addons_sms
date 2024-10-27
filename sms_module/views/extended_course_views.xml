@@ -29,10 +29,10 @@
                     <notebook>
                         <page string="Enrollments">
                             <field name="enrollment_ids">
-                                <tree>
+                                <list>
                                     <field name="student_id"/>
                                     <field name="enrollment_date"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Description">
@@ -41,26 +41,23 @@
                     </notebook>
                 </sheet>
                 <!-- Chatter Section -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                <chatter/>
+
             </form>
         </field>
     </record>
 
-    <!-- Extended Course Tree View -->
+    <!-- Extended Course List View -->
     <record id="extended_course_view_tree" model="ir.ui.view">
-        <field name="name">sms_module.extended_course.tree</field>
+        <field name="name">sms_module.extended_course.list</field>
         <field name="model">sms_module.extended_course</field>
         <field name="arch" type="xml">
-            <tree string="Extended Courses">
+            <list string="Extended Courses">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="duration"/>
                 <field name="course_prerequisite"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -86,7 +83,7 @@
     <record id="extended_course_action" model="ir.actions.act_window">
         <field name="name">Extended Courses</field>
         <field name="res_model">sms_module.extended_course</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'search_default_available': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create or manage extended course records</p>
