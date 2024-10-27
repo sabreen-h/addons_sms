@@ -44,10 +44,10 @@
                     <notebook>
                         <page string="Enrollments">
                             <field name="enrollment_ids">
-                                <tree>
+                                <list>
                                     <field name="student_id"/>
                                     <field name="enrollment_date"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
 
@@ -65,11 +65,7 @@
                 </sheet>
 
                  <!-- Chatter Section -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" />
-                    <field name="activity_ids" />
-                    <field name="message_ids" />
-                </div>
+                <chatter/>
 
             </form>
         </field>
@@ -79,15 +75,15 @@
 
 
      <record id="course_view_tree" model="ir.ui.view">
-        <field name="name">sms_module.course.tree</field>
+        <field name="name">sms_module.course.list</field>
         <field name="model">sms_module.course</field>
         <field name="arch" type="xml">
-            <tree string="Courses">
+            <list string="Courses">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="duration"/>
                 <field name="course_level"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -116,7 +112,7 @@
     <record id="course_action" model="ir.actions.act_window">
             <field name="name">Courses</field>
             <field name="res_model">sms_module.course</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="context">{'search_default_available': 1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create or manage course records</p>

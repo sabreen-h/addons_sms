@@ -88,7 +88,7 @@ class Course(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Enrollments',
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'sms_module.enrollment',
             'domain': [('course_id', '=', self.id)],
         }

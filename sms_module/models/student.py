@@ -141,7 +141,7 @@ class Student(models.Model):
         return {
             'name': 'Adult Students',
             'type': 'ir.actions.act_window',
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'sms_module.student',
             'domain': [('id', 'in', adult_students.ids)],
         }
