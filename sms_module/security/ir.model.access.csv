@@ -63,5 +63,7 @@ access_emergency_contact_readonly,access_emergency_contact_readonly,model_sms_mo
 
 access_res_config_settings_admin,access_res_config_settings_admin,model_res_config_settings,base.group_system,1,1,1,1
 
+access_sms_course_portal,sms_module.course_access,model_sms_module_course,base.group_portal,1,1,0,0
+
 
 

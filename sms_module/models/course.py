@@ -27,7 +27,16 @@ class Course(models.Model):
     duration = fields.Integer(string='Duration (weeks)')
     prerequisites = fields.Text(string='Prerequisites')
     is_featured = fields.Boolean(string='Featured Course')
-    course_level = fields.Integer(string='Course Level')
+    course_level = fields.Selection(
+        [
+            ('beginner', 'Beginner'),
+            ('intermediate', 'Intermediate'),
+            ('advanced', 'Advanced')
+        ],
+        string='Course Level',
+    )
+    access_token= fields.Char(default=False)
+    # none = fields.Char(default='None')
 
     # endregion
 

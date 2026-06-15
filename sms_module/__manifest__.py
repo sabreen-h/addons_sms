@@ -20,7 +20,7 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail' , 'portal'],
 
     # always loaded
     'data': [
@@ -38,6 +38,7 @@
         'views/extended_course_views.xml',
         'views/emergency_contact_views.xml',
         'views/res_config_settings_view.xml',
+        'views/instructor_portal_template.xml',
 
         'wizard/make_enrollment_wizard_views.xml',
 
