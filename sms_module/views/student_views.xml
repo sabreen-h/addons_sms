@@ -25,7 +25,7 @@
                             <field name="age" readonly="1"/>
                             <field name="student_id" widget="CopyClipboardChar"/>
                             <field name="email"/>
-                            <field name="gender" widget="radio"/>
+<!--                            <field name="gender" widget="radio"/>-->
                             <field name="profile_link" widget="CopyClipboardURL" />
                             <field name="submit_evaluation" widget="boolean" />
                             <field name="course_level"/>
