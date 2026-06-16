@@ -27,8 +27,7 @@
                             <field name="email"/>
                             <field name="gender" widget="radio"/>
                             <field name="profile_link" widget="CopyClipboardURL" />
-                            <field name="submit_evaluation" widget="boolean" />
-                            <field name="course_level"/>
+<!--                            <field name="course_level"/>-->
                             <field name="filtered_course_ids" invisible="1"/>
                             <field name="preferred_course"  domain="[('id', 'in', filtered_course_ids)]"/>
                         </group>
