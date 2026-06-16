@@ -1,0 +1,4 @@
+[submodule "subnodule/OdooJsonRpcClient"]
+	path = subnodule/OdooJsonRpcClient
+	url = git@github.com:kasim1011/OdooJsonRpcClient.git
+	branch = master
